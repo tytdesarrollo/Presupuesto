@@ -33,6 +33,5 @@ class AppAsset extends AssetBundle
 		'yii\bootstrap\BootMaterialCssAsset',
         'yii\bootstrap\BootMaterialJsAsset',
 		'yii\flickity\flickityPluginAsset',
-		'yii\sweetalert\sweetalertPluginAsset',
     ];
 }
