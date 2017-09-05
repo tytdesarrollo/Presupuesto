@@ -28,18 +28,24 @@ $this->title = 'Ejecución Presupuestal';
 						</div>
 						<h2 class="fnt__Medium text-center mrg__bottom-20"><?= Html::encode($this->title) ?></h2>
 						<div class="row">
-							<div class="col-sm-6">
-								<p class="">Razón social</p>
-								<p class="fnt__Medium">Nit</p>
+							<div class="col-xs-12 col-sm-6 pull-right">
+								<div class="row">
+									<div class="col-xs-6 col-sm-12">
+										<div class="content-ppto__f-hoy">
+											<span class="ppto__f-hoy fnt__Medium">04/09/2017</span>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-12">
+										<div class="pull-right">
+											<span class="fnt__Medium txt__dark-54">Vigencia: </span>
+											<span class="ppto__vig fnt__Medium">2017</span>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="col-sm-6 text-right">
-								<div>
-									<p>04/09/2017</p>
-								</div>
-								<div>
-									<span>Vigencia</span>
-									<span>2017</span>
-								</div>
+							<div class="col-xs-12 col-sm-6">
+								<p class="ppto__r-social">Razón social</p>
+								<p class="ppto__nit fnt__Medium">Nit</p>
 							</div>
 						</div>
 						<hr>
@@ -47,14 +53,25 @@ $this->title = 'Ejecución Presupuestal';
 							<div class="col-sm-12">
 								<h3 class="text-center">Selecciona el periodo a consultar</h3>
 									<div class="row">
-										<div class="col-sm-1 col-xs-2"></div>
-										<div class="col-sm-10 col-xs-6">
-											<label for="from">Desde</label>
-											<input type="text" data-type="date" id="from" name="from">
-											<label for="to">Hasta</label>
-											<input type="text" data-type="date" id="to" name="to">
+										<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+											<div class="content-ppto__rango mrg__top-30 text-center">
+												<div class="row">
+													<div class="col-xs-6">
+														<label for="from">Desde</label>
+														<div class="form-group">
+															<input class="form-control" id="from" name="from" type="text" data-type="date">
+														</div>
+													</div>
+													<div class="col-xs-6">
+														<label for="to">Hasta</label>
+														<!--<input type="text" data-type="date" id="to" name="to">-->
+														<div class="form-group">
+															<input type="text" type="text" data-type="date" id="to" name="to" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-										<div class="col-sm-1 col-xs-4"></div>
 									</div>
 							</div>
 						</div>
@@ -70,7 +87,7 @@ $this->title = 'Ejecución Presupuestal';
 									</div>
 									<div class="radio radio-primary">
 										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" disabled>
 											Opción #2 para generar el reporte
 										</label>
 									</div>
