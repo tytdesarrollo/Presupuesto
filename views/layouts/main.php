@@ -41,12 +41,6 @@ AppAsset::register($this);
 	});
 </script>
 <script>
-	//$('.btn').on('click', function () {
-    //swal('Sweet Alert 2').catch(swal.noop)
-  //})
-</script>
-
-<script>
 $( function() {
     var dateFormat = "dd/mm/yy",
       from = $( "#from" )
