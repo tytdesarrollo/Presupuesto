@@ -120,34 +120,35 @@ $this->title = 'Ejecución Presupuestal';
 <script>
 function Alerta(){
 
-var inputOptions = new Promise(function (resolve) {
-  setTimeout(function () {
-    resolve({
-      'EXCEL': 'EXCEL',
-      'PDF': 'PDF'
-    })
-  }, 1000)
+swal({
+  title: '¿Qué formato necesita para el reporte?',
+  text: "Seleccione el formato que desee",
+  type: 'question',
+  showCancelButton: true,
+  confirmButtonColor: '#1AC72E',
+  cancelButtonColor: '#E22C2C',
+  confirmButtonText: 'EXCEL',
+  cancelButtonText: 'PDF',
+
+}).then(function () {
+  swal(
+    'Exportado!',
+    'El reporte a sido exportado en EXCEL.',
+    'success'
+  )
+}, function (dismiss) {
+  // dismiss can be 'cancel', 'overlay',
+  // 'close', and 'timer'
+  if (dismiss === 'cancel') {
+    swal(
+      'Exportado!',
+      'El reporte a sido exportado en PDF.',
+      'success'
+    )
+  }
 })
 
-swal({
-  title: 'En qué formato?',
-  input: 'radio',
-  inputOptions: inputOptions,
-  inputValidator: function (result) {
-    return new Promise(function (resolve, reject) {
-      if (result) {
-        resolve()
-      } else {
-        reject('Elija un formato!')
-      }
-    })
-  }
-}).then(function (result) {
-  swal({
-    type: 'success',
-    html: 'Seleccionó: ' + result
-  })
-})
+
 
 
 };
