@@ -48,7 +48,7 @@ AppAsset::register($this);
 
 <script>
 $( function() {
-    var dateFormat = "d M, y",
+    var dateFormat = "dd/mm/yy",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",
