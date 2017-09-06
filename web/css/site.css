@@ -2461,8 +2461,45 @@ MATERIAL-SELECT
 }
 
 
-
 /* ESTILOS PRESUPUESTO */
 .title_rsocial{
 	font-size: 18px;
+}
+
+/* ESTILOS CALENDARIO PRESUPUESTO */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    background: none;
+    border: none;
+    text-align: center;
+    height: 33px;
+    width: 33px;
+    line-height: 33px;
+	font-family: 'arial';
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border-radius: 50%;
+    background-color: #284B72;
+    color: white;
+}
+
+.ui-state-default:hover {
+    border-radius: 50%;
+    background-color: #284B72;
+    color: white;
+}
+
+.ui-widget-header {
+    border: 1px;
+    background: none;
+    color: #222222;
+    font-weight: bold;
+}
+
+.ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+    font-family: 'arial';
 }

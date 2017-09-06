@@ -19,8 +19,10 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <?php $this->head() ?>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css">
+    
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -32,13 +34,48 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
 	$(function () {
 		$.material.init();
 	});
 </script>
 <script>
-	$('.btn').on('click', function () {
-    swal('Sweet Alert 2').catch(swal.noop)
-  })
+	//$('.btn').on('click', function () {
+    //swal('Sweet Alert 2').catch(swal.noop)
+  //})
+</script>
+
+<script>
+    $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
 </script>
