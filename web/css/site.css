@@ -2462,8 +2462,41 @@ MATERIAL-SELECT
 
 
 /* ESTILOS PRESUPUESTO */
-.title_rsocial{
-	font-size: 18px;
+.ppto__r-social{
+	font-size: 1.375em;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.ppto__nit{
+	font-size: 1.188em;
+}
+.ppto__f-hoy{
+	font-size: 1.125em;
+    color: #555;
+}
+.ppto__vig{
+	font-size: 1.5em;
+}
+.content-ppto__f-hoy{
+	margin-top: 8px;
+	margin-bottom: 9px;
+}
+.content-ppto__rango .form-group{
+	margin: 0;
+}
+.content-ppto__rango .form-group .form-control{
+	font-size: 1.6em;
+	text-align: center;
+}
+@media (min-width: 768px){
+	.content-ppto__f-hoy{
+		float: right;
+		margin-top: 0;
+	}
+	.ppto__r-social{
+		margin-top: 0;
+	}
+	
 }
 
 /* ESTILOS CALENDARIO PRESUPUESTO */
@@ -2479,13 +2512,13 @@ MATERIAL-SELECT
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
     border-radius: 50%;
-    background-color: #284B72;
+    background-color: #00766c;
     color: white;
 }
 
 .ui-state-default:hover {
     border-radius: 50%;
-    background-color: #284B72;
+    background-color: #009688;
     color: white;
 }
 

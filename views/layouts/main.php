@@ -47,13 +47,14 @@ AppAsset::register($this);
 </script>
 
 <script>
-    $( function() {
-    var dateFormat = "mm/dd/yy",
+$( function() {
+    var dateFormat = "dd/mm/yy",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
-          numberOfMonths: 1
+          numberOfMonths: 1,
+		  dateFormat: "dd/mm/yy"
         })
         .on( "change", function() {
           to.datepicker( "option", "minDate", getDate( this ) );
@@ -61,7 +62,8 @@ AppAsset::register($this);
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
+		dateFormat: "dd/mm/yy"
       })
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
@@ -77,5 +79,5 @@ AppAsset::register($this);
  
       return date;
     }
-  } );
+ });
 </script>
