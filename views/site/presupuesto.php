@@ -124,21 +124,20 @@ swal({
   title: '¿Qué formato necesita para el reporte?',
   text: "Seleccione el formato que desee",
   type: 'question',
-  showCancelButton: true,
+  showCancelButton: false,
   confirmButtonColor: '#1AC72E',
   cancelButtonColor: '#E22C2C',
   confirmButtonText: 'EXCEL',
   cancelButtonText: 'PDF',
 
 }).then(function () {
+  window.open('<?php echo Url::toRoute(['site/excel']); ?>','_blank');
   swal(
     'Exportado!',
     'El reporte a sido exportado en EXCEL.',
-    'success'
+    'success',
   )
 }, function (dismiss) {
-  // dismiss can be 'cancel', 'overlay',
-  // 'close', and 'timer'
   if (dismiss === 'cancel') {
     swal(
       'Exportado!',
