@@ -81,7 +81,7 @@ $this->title = 'Ejecución Presupuestal';
 									<div class="radio radio-primary">
 										<label>
 											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-											Opción #1 para generar el reporte
+											Opción #1 Plantilla de ejecución de ingreso
 										</label>
 									</div>
 									<div class="radio radio-primary">
