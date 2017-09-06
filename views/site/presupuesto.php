@@ -64,7 +64,6 @@ $this->title = 'Ejecución Presupuestal';
 													</div>
 													<div class="col-xs-6">
 														<label for="to">Hasta</label>
-														<!--<input type="text" data-type="date" id="to" name="to">-->
 														<div class="form-group">
 															<input type="text" type="text" data-type="date" id="to" name="to" class="form-control">
 														</div>
