@@ -2536,3 +2536,9 @@ MATERIAL-SELECT
     border: 0;
     font-family: 'arial';
 }
+
+.list-group .list-group-item{
+	background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
