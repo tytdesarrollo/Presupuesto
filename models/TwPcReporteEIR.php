@@ -17,8 +17,8 @@ class TwPcReporteEIR extends Model{
 
 		$CONEXION = oci_connect($usr, $psw, $db);
 
-	$IN_PERIODO1= '01/01/2015';
-	$IN_PERIODO2= '01/12/2015';
+	$IN_PERIODO1= Yii::$app->request->get('from');
+	$IN_PERIODO2= Yii::$app->request->get('to');
 	
 	//salida
 	$BLOQUE1;
