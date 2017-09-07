@@ -25,7 +25,7 @@ AppAsset::register($this);
 	<script src="../web/js/modernizr.js"></script>
     
 </head>
-<body>
+<body onload="myFunction()" style="margin:0;background-image: url('../web/img/clips.svg');background-color: lightseagreen;">
 <?php $this->beginBody() ?>
     <div class="fluid-container main-content">
         <?= $content ?>
