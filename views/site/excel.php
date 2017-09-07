@@ -21,7 +21,7 @@ $table = "<table cellpadding='0' cellspacing='0' id='sheet0' border='0'>
 			<td>&nbsp;</td>
 		  </tr>
 		  <tr style = 'font-weight:bold'>
-			<td>".$CABEZERA[0]."</td>
+			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
@@ -80,12 +80,12 @@ $table = "<table cellpadding='0' cellspacing='0' id='sheet0' border='0'>
 			
 		<table cellpadding='0' cellspacing='0' id='sheet0' border='1'>		
 		<thead>
-			<tr style='background:#CCC; color:#000; font-weight:bold'>
+			<tr style='background:#8BC34A; color:#000; font-weight:bold'>
 			  <th>
-				RUBRO
+				ESTABLECIMIENTO DE SANIDAD MILITAR
 			  </th>
 			  <th>
-				DESCRIPCION
+				TIPO DE PROCESO (Dispensacion, Requisicion, Suministro)
 			  </th>
 			  <th>
 				PRESUPUESTO INCIAL
