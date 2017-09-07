@@ -95,7 +95,16 @@ class SiteController extends Controller
     }
 	public function actionPresupuesto()
     {
-        return $this->render('presupuesto');
+		
+		$model = new TwPcReporteEIR;
+		
+		$twpcreporteeir = $model->ReporteEIR();
+		
+		$RAZON_SOCIAL = $twpcreporteeir[1];
+		$CABEZERA = explode("_*", $twpcreporteeir[2]);
+		
+		
+        return $this->render('presupuesto',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA]);
     }
 	public function actionExcel()
     {
