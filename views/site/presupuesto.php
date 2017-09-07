@@ -52,8 +52,8 @@ $this->title = 'Ejecución Presupuestal';
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6">
-								<p class="ppto__r-social">Razón social: CONSORCIO SAMA</p>
-								<p class="ppto__nit fnt__Medium">Nit 900.806.124-1</p>
+								<p class="ppto__r-social"><?= $RAZON_SOCIAL?></p>
+								<p class="ppto__nit fnt__Medium">Nit <?= $CABEZERA[3]?></p>
 							</div>
 						</div>
 						<hr>
