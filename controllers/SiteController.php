@@ -89,10 +89,11 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionPrueba()
+    public function actionSeleccion()
     {
-        return $this->render('prueba');
+        return $this->render('seleccion');
     }
+
 	public function actionPresupuesto()
     {
 		
