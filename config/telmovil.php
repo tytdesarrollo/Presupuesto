@@ -14,7 +14,7 @@ return [
       (SERVICE_NAME=ORCL)
     )
   );charset=AL32UTF8;', // Oracle
-    'username' => 'TELEPRU',
+    'username' => 'HIMS_AWA',
     'password' => 'tytcali',
 	'charset' => 'utf8',
 		
