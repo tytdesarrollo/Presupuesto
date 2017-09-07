@@ -51,7 +51,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+	return $this->redirect(['site/presupuesto']);
     }
 
     public function actionLogin()
@@ -89,13 +89,23 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionPrueba()
+    public function actionSeleccion()
     {
-        return $this->render('prueba');
+        return $this->render('seleccion');
     }
+
 	public function actionPresupuesto()
     {
-        return $this->render('presupuesto');
+		
+		$model = new TwPcReporteEIR;
+		
+		$twpcreporteeir = $model->ReporteEIR();
+		
+		$RAZON_SOCIAL = $twpcreporteeir[1];
+		$CABEZERA = explode("_*", $twpcreporteeir[2]);
+		
+		
+        return $this->render('presupuesto',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA]);
     }
 	public function actionExcel()
     {

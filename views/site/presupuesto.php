@@ -10,6 +10,14 @@ use yii\helpers\Url;
 
 $this->title = 'Ejecución Presupuestal';
 ?>
+<?php $form = ActiveForm::begin([
+					"method" => "get",
+					'action' => ['site/excel'],
+					"id" => "compro-form",
+					"enableClientValidation" => false,
+					"enableAjaxValidation" => false,
+					]); 
+					?>
 <div class="mod-docs">
 	<div class="mod-docs-header bg-teal-std">
 	</div>
@@ -32,23 +40,24 @@ $this->title = 'Ejecución Presupuestal';
 								<div class="row">
 									<div class="col-xs-6 col-sm-12">
 										<div class="content-ppto__f-hoy">
-											<span class="ppto__f-hoy fnt__Medium">04/09/2017</span>
+											<span class="ppto__f-hoy fnt__Medium"><?= date("d/m/y")?></span>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-12">
 										<div class="pull-right">
-											<span class="fnt__Medium txt__dark-54">Vigencia: </span>
-											<span class="ppto__vig fnt__Medium">2017</span>
+											<span class="fnt__Medium txt__dark-54"></span>
+											<span class="ppto__vig fnt__Medium"></span>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6">
-								<p class="ppto__r-social">Razón social</p>
-								<p class="ppto__nit fnt__Medium">Nit</p>
+								<p class="ppto__r-social">Razón social: CONSORCIO SAMA</p>
+								<p class="ppto__nit fnt__Medium">Nit 900.806.124-1</p>
 							</div>
 						</div>
 						<hr>
+						
 						<div class="row">
 							<div class="col-sm-12">
 								<h3 class="text-center">Selecciona el periodo a consultar</h3>
@@ -59,13 +68,13 @@ $this->title = 'Ejecución Presupuestal';
 													<div class="col-xs-6">
 														<label for="from">Desde</label>
 														<div class="form-group">
-															<input class="form-control" id="from" name="from" type="text" data-type="date">
+															<input class="form-control" id="from" name="from" type="text" data-type="date" required="true">
 														</div>
 													</div>
 													<div class="col-xs-6">
 														<label for="to">Hasta</label>
 														<div class="form-group">
-															<input type="text" type="text" data-type="date" id="to" name="to" class="form-control">
+															<input type="text" type="text" data-type="date" id="to" name="to" class="form-control" required="true">
 														</div>
 													</div>
 												</div>
@@ -74,6 +83,7 @@ $this->title = 'Ejecución Presupuestal';
 									</div>
 							</div>
 						</div>
+						
 						<hr>
 						<div class="row">
 							<div class="col-sm-12">
@@ -116,39 +126,4 @@ $this->title = 'Ejecución Presupuestal';
 		</div>
 	</div>
 </div>
-
-<script>
-function Alerta(){
-
-swal({
-  title: '¿Qué formato necesita para el reporte?',
-  text: "Seleccione el formato que desee",
-  type: 'question',
-  showCancelButton: false,
-  confirmButtonColor: '#1AC72E',
-  cancelButtonColor: '#E22C2C',
-  confirmButtonText: 'EXCEL',
-  cancelButtonText: 'PDF',
-
-}).then(function () {
-  window.open('<?php echo Url::toRoute(['site/excel']); ?>','_blank');
-  swal(
-    'Exportado!',
-    'El reporte a sido exportado en EXCEL.',
-    'success',
-  )
-}, function (dismiss) {
-  if (dismiss === 'cancel') {
-    swal(
-      'Exportado!',
-      'El reporte a sido exportado en PDF.',
-      'success'
-    )
-  }
-})
-
-
-
-
-};
-</script>
+<?php ActiveForm::end(); ?>
