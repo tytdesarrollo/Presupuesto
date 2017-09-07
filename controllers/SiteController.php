@@ -91,7 +91,26 @@ class SiteController extends Controller
 
     public function actionSeleccion()
     {
+		$this->layout='main_seleccion';
         return $this->render('seleccion');
+    }
+	
+	public function actionAdiciones()
+    {
+		$this->layout='main_mant';
+        return $this->render('adiciones');
+    }
+	
+	public function actionReducciones()
+    {
+		$this->layout='main_mant';
+        return $this->render('reducciones');
+    }
+	
+	public function actionAutopago()
+    {
+		$this->layout='main_mant';
+        return $this->render('autopago');
     }
 
 	public function actionPresupuesto()
