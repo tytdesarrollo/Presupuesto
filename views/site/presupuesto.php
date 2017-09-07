@@ -40,12 +40,13 @@ $this->title = 'Ejecución Presupuestal';
 								<div class="row">
 									<div class="col-xs-6 col-sm-12">
 										<div class="content-ppto__f-hoy">
-											<span class="ppto__f-hoy fnt__Medium">Fecha: <?= date("d/m/y")?></span>
+											<span class="ppto__f-hoy fnt__Medium"><?= date("d/m/y")?></span>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-12">
 										<div class="pull-right">
-										
+											<span class="fnt__Medium txt__dark-54"></span>
+											<span class="ppto__vig fnt__Medium"></span>
 										</div>
 									</div>
 								</div>
