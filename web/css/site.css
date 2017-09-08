@@ -2698,14 +2698,14 @@ MATERIAL-SELECT
 }
 
 /* ESTILOS ADICIONES */
-.panel-operations .panel-body{
-	padding-top: 80px;
+.main-operations .mod-docs-header{
+	height: 20vh;
 }
-.content__f-input{
-	position: absolute;
-	top: 0;
-	right: 45px;
-	width: 20%;
+.panel-operations .panel-body{
+	padding-top: 63px;
+}
+.content__f-input .form-group{
+	margin: 0;
 }
 .content__f-input .form-control{
 	text-align: center;
@@ -2714,6 +2714,11 @@ MATERIAL-SELECT
 	position: absolute;
     top: 0;
     left: 50%;
-    width: 30%;
-    margin-left: -15%;
+    width: 70%;
+    margin-left: -35%;
+}
+@media (min-width: 768px){
+	.main-operations .mod-docs-header{
+		height: 30vh;
+	}
 }

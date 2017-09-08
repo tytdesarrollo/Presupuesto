@@ -34,7 +34,6 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
 	$(function () {
 		$.material.init();
