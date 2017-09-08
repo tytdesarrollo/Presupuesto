@@ -16,6 +16,8 @@ $this->title = '¿Qué operación desea realizar?';
 		<h2 data-content="¿Qué operación desea realizar?"><span>¿Qué operación desea realizar?</span></h2>
 		<div class="action-wrapper">
 			<p>
+				<a href="<?php echo Url::toRoute(['site/adiciones']); ?>" class="cd-btn verde">Adición</a>
+				<a href="<?php echo Url::toRoute(['site/reducciones']); ?>" class="cd-btn rojo">Reducción</a>
 				<a href="<?php echo Url::toRoute(['site/autopago']); ?>" class="cd-btn">Aprobación de pago</a>
 				<a href="<?php echo Url::toRoute(['site/presupuesto']); ?>" class="cd-btn">Ejecuciones</a>
 			</p>

@@ -2729,6 +2729,11 @@ MATERIAL-SELECT
 Mask
 
 -------------------------------- */
+.cd-intro-content h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
 .mask.cd-intro-content h2 {
   position: relative;
   padding-bottom: 10px;
