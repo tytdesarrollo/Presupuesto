@@ -80,6 +80,10 @@ General Style
     font-size: 1.6rem;
     margin: 1.5em 0 1.9em;
   }
+  .cd-intro-content h2 {
+    font-size: 2.7rem;
+    font-weight: 300;
+}
 }
 
 .cd-btn {
