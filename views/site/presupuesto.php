@@ -117,7 +117,9 @@ $this->title = 'Ejecución Presupuestal';
 						</div>
 						<div class="row">
 							<div class="col-sm-12">
-								<div class="form-group text-center"><button onclick="Alerta()" class="btn btn-primary btn-raised">Generar</button></div>
+								<div class="form-group text-center">
+									<?= Html::a('Cancelar', ['site/seleccion'], ['class'=>'btn btn-danger btn-raised']) ?>
+									<button onclick="Alerta()" class="btn btn-primary btn-raised">Generar</button></div>
 							</div>
 						</div>
 					</div>
