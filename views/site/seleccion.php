@@ -10,8 +10,21 @@ use yii\helpers\Url;
 
 $this->title = '¿Qué operación desea realizar?';
 ?>
-
-<div id="loader">
+<section class="cd-intro">
+	<div class="cd-intro-content mask">
+		<h1 data-content="Presupuesto"><span>Presupuesto</span></h1>
+		<h2 data-content="¿Qué operación desea realizar?"><span>¿Qué operación desea realizar?</span></h2>
+		<div class="action-wrapper">
+			<p>
+				<a href="<?php echo Url::toRoute(['site/adiciones']); ?>" class="cd-btn verde">Adición</a>
+				<a href="<?php echo Url::toRoute(['site/reducciones']); ?>" class="cd-btn rojo">Reducción</a>
+				<a href="<?php echo Url::toRoute(['site/autopago']); ?>" class="cd-btn">Aprobación de pago</a>
+				<a href="<?php echo Url::toRoute(['site/presupuesto']); ?>" class="cd-btn">Ejecuciones</a>
+			</p>
+		</div>
+	</div>
+</section>
+<!--<div id="loader">
 <br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="sk-circle">
 	  <div class="sk-circle1 sk-child"></div>
@@ -29,6 +42,9 @@ $this->title = '¿Qué operación desea realizar?';
 	</div>
 </div>
 
+<section class="cd-intro">
+	<div class="cd-intro-content mask">
+
 <div class="mod-docs">
 
 	<div style="display:none;" id="myDiv" class="animate-bottom">
@@ -37,16 +53,16 @@ $this->title = '¿Qué operación desea realizar?';
 
 	<div class="mod-docs-body container">
 		<div class="row">
-			<!--<div class="box-circle">
+			<div class="box-circle">
 				<svg version="1.1" id="circle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
 					<path fill="#FFFFFF" d="M400,201H0C0,90,89.543,1,200,1S400,90,400,201z"/>
 				</svg>
-			</div>-->
+			</div>
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<div class="box-certingreso-drw">
-							<!--<img src="img/certingreso_drw.svg" alt="Ejecución Presupuestal">-->
+						<div class="hompea">
+							<img src="img/seleccion.svg" alt="Ejecución Presupuestal">
 						</div>
 						<h2 class="fnt__Medium text-center mrg__bottom-20"><?= Html::encode($this->title) ?></h2>
 						<hr>
@@ -66,9 +82,15 @@ $this->title = '¿Qué operación desea realizar?';
 			</div>
 		</div>
 	</div>
-</div>
+</div>-->
 
 </div>
+
+	</div>
+</section>
+	
+<script src="../web/js/jquery-2.1.4.js"></script>
+<script src="../web/js/main.js"></script> <!-- Resource jQuery -->
 
 <script>
 var myVar;
