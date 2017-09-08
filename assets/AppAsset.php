@@ -26,6 +26,8 @@ class AppAsset extends AssetBundle
 		'js/mlpushmenu.js',
 		'js/moment.min.js',
 		'js/fullcalendar.min.js',
+		'http://code.jquery.com/ui/1.12.1/jquery-ui.min.js',
+		'js/datepicker-es.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

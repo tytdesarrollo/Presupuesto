@@ -26,7 +26,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-    <div class="fluid-container main-content">
+    <div class="fluid-container main-content main-operations">
 		<div class="mod-docs">
 			<div class="mod-docs-header bg-teal-std"></div>
 			<div class="mod-docs-body container">
@@ -34,9 +34,13 @@ AppAsset::register($this);
 					<div class="col-md-8 col-md-offset-2">
 						<div class="panel panel-default panel-operations">
 							<div class="panel-body">
-								<div class="content__f-input pull-right">
-									<div class="form-group">
-										<input class="form-control" id="finput" name="finput" type="text" data-type="date" required="true" value="<?= date("d/m/y")?>">
+								<div class="row">
+									<div class="col-xs-3 col-sm-2 pull-right">
+										<div class="content__f-input pull-right">
+											<div class="form-group">
+												<input class="form-control" id="finput" name="finput" type="text" data-type="date" required="true" value="<?= date("d/m/y")?>">
+											</div>
+										</div>
 									</div>
 								</div>
 								<p>Seleccione un ESM para continuar con la operación.
@@ -55,7 +59,12 @@ AppAsset::register($this);
 								</p>
 							</div>
 							<div class="panel-footer clearfix">
-								<div class="form-group pull-right"><button class="btn btn-primary btn-raised">Guardar</button></div>
+								<div class="form-group pull-left">
+									<?= Html::a('Cancelar', ['site/seleccion'], ['class'=>'btn btn-danger btn-raised']) ?>
+								</div>
+								<div class="form-group pull-right">
+									<?= Html::a('Guardar', ['site/seleccion'], ['class'=>'btn btn-primary btn-raised']) ?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -68,7 +77,6 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
 	$(function () {
 		$.material.init();
@@ -78,7 +86,9 @@ AppAsset::register($this);
   $( function() {
     $( "#finput" ).datepicker({
 		gotoCurrent: true,
-		dateFormat: "dd/mm/y"
+		dateFormat: "dd/mm/y",
+		changeMonth: true,
+		changeYear: true
 	})
   } );
   </script>
