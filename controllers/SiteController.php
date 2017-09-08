@@ -51,7 +51,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-	return $this->redirect(['site/presupuesto']);
+	return $this->redirect(['site/seleccion']);
     }
 
     public function actionLogin()

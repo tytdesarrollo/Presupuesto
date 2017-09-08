@@ -22,12 +22,12 @@ AppAsset::register($this);
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <?php $this->head() ?>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.css">
-	<script src="../web/js/modernizr.js"></script> <!-- Modernizr -->
-  <link rel="stylesheet" href="../web/css/reset.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="../web/css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
     
 </head>
-<body onload="myFunction()" style="margin:0;/*background-image: url('../web/img/clips.svg');background-color: lightseagreen;*/">
+<body onload="myFunction()" style="margin:0;/*background-image: url('img/clips.svg');background-color: lightseagreen;*/">
 <?php $this->beginBody() ?>
     <div class="fluid-container main-content">
         <?= $content ?>

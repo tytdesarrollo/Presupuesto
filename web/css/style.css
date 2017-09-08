@@ -45,7 +45,7 @@ General Style
   text-align: center;
   padding: 0 5%;
   background: lightseagreen/*#2e416a*/;
-  background-image: url('../../web/img/clips.svg');
+  background-image: url('../img/clips.svg');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
