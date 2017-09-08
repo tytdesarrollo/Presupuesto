@@ -2696,3 +2696,24 @@ MATERIAL-SELECT
     width: 100%;
     height: 50vh;
 }
+
+/* ESTILOS ADICIONES */
+.panel-operations .panel-body{
+	padding-top: 80px;
+}
+.content__f-input{
+	position: absolute;
+	top: 0;
+	right: 45px;
+	width: 20%;
+}
+.content__f-input .form-control{
+	text-align: center;
+}
+.content__title-opration{
+	position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+}
