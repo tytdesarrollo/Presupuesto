@@ -2722,3 +2722,83 @@ MATERIAL-SELECT
 		height: 30vh;
 	}
 }
+
+/* Texto h2 */
+/* -------------------------------- 
+
+Mask
+
+-------------------------------- */
+.mask.cd-intro-content h2 {
+  position: relative;
+  padding-bottom: 10px;
+  /* overwrite default style */
+  opacity: 1;
+  font-weight: 700;
+  /* <h1> text is not visible - it is used only as a container for the ::after element */
+  color: transparent;
+  overflow: hidden;
+}
+.mask.cd-intro-content h2::after {
+  /* this is the animated text */
+  content: attr(data-content);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+  -webkit-animation-name: cd-reveal-up;
+  -moz-animation-name: cd-reveal-up;
+  animation-name: cd-reveal-up;
+  -webkit-animation-fill-mode: backwards;
+  -moz-animation-fill-mode: backwards;
+  animation-fill-mode: backwards;
+}
+.mask.cd-intro-content h1 span {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+.mask.cd-intro-content h2 span::before {
+  /* this is the loading bar */
+  content: '';
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -1em;
+  height: 2px;
+  width: calc(100% + 2em);
+  background-color: #ffffff;
+  -webkit-animation: cd-loading-mask 1s 0.3s both;
+  -moz-animation: cd-loading-mask 1s 0.3s both;
+  animation: cd-loading-mask 1s 0.3s both;
+}
+@media only screen and (min-width: 768px) {
+  .mask.cd-intro-content h2 {
+    padding-bottom: 20px;
+  }
+  .mask.cd-intro-content h2 span::before {
+    top: calc(100% + 18px);
+  }
+}
+
+
+.mask.cd-intro-content h2::after,
+.mask.cd-intro-content p {
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@media only screen and (max-width: 768px) {
+	p{
+		display: inline-grid;
+	}
+
+	.cd-btn {
+		padding: 0.5em 1.5em;
+	}
+}
