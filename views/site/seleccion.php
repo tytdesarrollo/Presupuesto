@@ -89,8 +89,8 @@ $this->title = '¿Qué operación desea realizar?';
 	</div>
 </section>
 	
-<script src="../web/js/jquery-2.1.4.js"></script>
-<script src="../web/js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
 
 <script>
 var myVar;
