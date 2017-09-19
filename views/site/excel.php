@@ -112,7 +112,7 @@ $table = "<table cellpadding='0' cellspacing='0' id='sheet0' border='0'>
 			<td><table cellpadding='0' cellspacing='0' id='sheet0' border='1'><tbody>";
 			
 		foreach($BLOQUE1_ARR as $BLOQUE1_ARR1){
-		$table.='<tr style="text-align: left;"><td>'.$BLOQUE1_ARR1.'</td></tr>';
+		$table.='<tr style="text-align: left;"><td>'.utf8_decode($BLOQUE1_ARR1).'</td></tr>';
 		}
 			
 			$table.="</tbody></table></td>

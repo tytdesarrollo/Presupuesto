@@ -46,6 +46,7 @@ $( function() {
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
+          changeYear: true,
           numberOfMonths: 1,
 		  dateFormat: "dd/mm/yy"
         })
@@ -55,6 +56,7 @@ $( function() {
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
         changeMonth: true,
+		changeYear: true,
         numberOfMonths: 1,
 		dateFormat: "dd/mm/yy"
       })
