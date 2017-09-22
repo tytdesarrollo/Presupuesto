@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
 		'js/moment.min.js',
 		'js/fullcalendar.min.js',
 		'http://code.jquery.com/ui/1.12.1/jquery-ui.min.js',
+		'js/menuppto.js',
 		'js/datepicker-es.js',
     ];
     public $depends = [

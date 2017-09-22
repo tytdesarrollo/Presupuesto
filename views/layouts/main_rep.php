@@ -78,51 +78,8 @@ AppAsset::register($this);
 			</div>
 		</nav>
 	</header>
-    <div class="fluid-container main-content main-operations">
-		<div class="mod-docs">
-			<div class="mod-docs-header bg-teal-std"></div>
-			<div class="mod-docs-body container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="panel panel-default panel-operations">
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 pull-right">
-										<div class="content__f-input pull-right">
-											<div class="form-group">
-												<input class="form-control" id="finput" name="finput" type="text" data-type="date" required="true" value="<?= date("d/m/y")?>">
-											</div>
-										</div>
-									</div>
-								</div>
-								<p>Seleccione un ESM para continuar con la operación.
-									<div class="row">
-										<div class="col-xs-3 col-sm-3">
-											<div class="form-group label-floating"><label for="codESM" class="control-label">ESM</label><input type="text" class="form-control" id="codESM"></div>
-										</div>
-										<div class="col-xs-9 col sm-9">
-											<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
-										</div>
-									</div>
-									<hr>
-									<div class="content-operations">
-										<?= $content ?>
-									</div>
-								</p>
-							</div>
-							<div class="panel-footer clearfix">
-								<div class="form-group pull-left">
-									<?= Html::a('Cancelar', ['site/index'], ['class'=>'btn btn-danger btn-raised']) ?>
-								</div>
-								<div class="form-group pull-right">
-									<?= Html::a('Guardar', ['site/index'], ['class'=>'btn btn-primary btn-raised']) ?>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <div class="fluid-container main-content">
+        <?= $content ?>
     </div>
 <?php $this->endBody() ?>
 </body>
@@ -135,22 +92,13 @@ AppAsset::register($this);
 	});
 </script>
 <script>
-  $( function() {
-    $( "#finput" ).datepicker({
-		gotoCurrent: true,
-		dateFormat: "dd/mm/y",
-		changeMonth: true,
-		changeYear: true
-	})
-  } );
-  </script>
-<script>
 $( function() {
     var dateFormat = "dd/mm/yy",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
+          changeYear: true,
           numberOfMonths: 1,
 		  dateFormat: "dd/mm/yy"
         })
@@ -160,6 +108,7 @@ $( function() {
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
         changeMonth: true,
+		changeYear: true,
         numberOfMonths: 1,
 		dateFormat: "dd/mm/yy"
       })

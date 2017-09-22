@@ -51,7 +51,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-	return $this->redirect(['site/seleccion']);
+		return $this->render('index');
+	// return $this->redirect(['site/presupuesto']);
     }
 
     public function actionLogin()
@@ -115,14 +116,13 @@ class SiteController extends Controller
 
 	public function actionPresupuesto()
     {
-		
+		$this->layout='main_rep';
 		$model = new TwPcReporteEIR;
 		
 		$twpcreporteeir = $model->ReporteEIR();
 		
 		$RAZON_SOCIAL = $twpcreporteeir[1];
 		$CABEZERA = explode("_*", $twpcreporteeir[2]);
-		
 		
         return $this->render('presupuesto',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA]);
     }
