@@ -10,9 +10,22 @@ use PDO;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\TwPcReporteEIR;
+use app\models\TwPcReporteSQL;
 
 class SiteController extends Controller
 {
+	public function actionPrueba()
+    {
+		
+		$model = new TwPcReporteSQL;
+
+		$twpcreportesql = $model->procedimiento();
+		
+		//$prueba = 'hail hydra';
+		
+	return $this->render('prueba',["DATO"=>$twpcreportesql]);
+    }
+	
     public function behaviors()
     {
         return [
