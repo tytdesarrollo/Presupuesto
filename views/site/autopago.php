@@ -13,14 +13,38 @@ $this->title = 'Autorización de pago';
 <div class="content__title-opration">
 	<h2 class="fnt__Medium text-center"><?= Html::encode($this->title) ?></h2>
 </div>
-<p>Asigne el valor para la autorización de pago.</p>
+<div class="row">
+	<div class="col-xs-3 col-sm-2">
+		<div class="form-group label-floating"><label for="codESM" class="control-label">Código</label><input type="text" class="form-control" id="codESM"></div>
+	</div>
+	<div class="col-xs-9 col-sm-10">
+		<div class="form-group label-floating"><label for="dscESM" class="control-label">Fuerza</label><input type="text" class="form-control" id="dscESM"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-3 col-sm-2">
+		<div class="form-group label-floating"><label for="codESM" class="control-label">ESM</label><input type="text" class="form-control" id="codESM"></div>
+	</div>
+	<div class="col-xs-9 col-sm-10">
+		<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-xs-12 col-sm-6">
 		<div class="form-group">
-			<label for="rdn" class="control-label">Autorización de pago</label>
+			<label for="rdn" class="control-label">Valor autorizado a pagar</label>
 			<div class="input-group">
 				<span class="input-group-addon">$</span>
-				<input type="text" class="form-control" id="rdn">
+				<input type="number" class="form-control" id="rdn">
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="form-group">
+			<label for="rdn" class="control-label">Amortización anticipo</label>
+			<div class="input-group">
+				<span class="input-group-addon">$</span>
+				<input type="number" class="form-control" id="amant">
 			</div>
 		</div>
 	</div>

@@ -2244,7 +2244,7 @@ a.color-white:hover{
 }
 .mod-docs-body{
 	position: relative;
-	margin-top: -20vh;
+	margin-top: -28vh;
 }
 .mod-docs .panel.panel-default{
 	-webkit-box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 6px 0 rgba(0, 0, 0, 0.12);
@@ -2462,10 +2462,13 @@ MATERIAL-SELECT
 
 
 /* ESTILOS PRESUPUESTO */
+body {
+    position: relative; 
+}
 /* MENU-PPTO */
 .content-menu-ppto{
 	position: fixed;
-	z-index: 1;
+	z-index: 5;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -2798,6 +2801,178 @@ MATERIAL-SELECT
 		font-size: 2.8rem;
 	}
 }
+/* LIST OPERATIONS */
+.content-list-operations{
+	position: fixed;
+	width: 60%;
+	height: 100vh;
+	top: 0;
+	right: 0;
+	background-color: #ffffff;
+	-webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+	/* overflow-y: auto; */
+	box-shadow: -4px 4px 20px transparent;
+	z-index: 4;
+	-webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-transition: -webkit-transform 0.3s, box-shadow 0.3s;
+    -moz-transition: -moz-transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.content-list-operations.list-operations-visible{
+	-webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+}
+.list-operations{
+    height: 100%;
+	padding-bottom: 50px;
+	overflow-y: auto;
+}
+.title-list-op{
+	padding: 20px;
+	background-color: #dddddd;
+}
+.title-list-op h3{
+	margin: 0;
+}
+.list-item-op{
+	padding-right: 15px;
+	background-color: #f4f4f4;
+	border-top: 1px solid #afafaf;
+}
+.list-item-op .info-op{
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	padding: 10px 0;
+}
+.list-item-op .cnt-v-op{
+	float: right !important;
+}
+.list-item-op .cnt-v-op .info-op{
+	text-align: right;
+}
+.list-item-op .cnt-v-op .info-op:nth-last-child(1){
+	margin-right: 0;
+}
+.list-item-op .cnt-btn-op{
+	display: inline-block;
+	margin: 0 5px 0px 0;
+	vertical-align: top;
+}
+.info-op dt{
+	font-size: 13px;
+}
+.cnt-btn-op .btn-remove-op{
+	position: relative;
+	display: inline-block;
+    margin: 0;
+	padding: 18px 8px;
+	border: none;
+	background-color: #d3d3d3;
+	color: rgba(0,0,0, 0.87);
+	font-size: 14px;
+    font-weight: 500;
+	line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0;
+	text-decoration: none;
+	outline: 0;
+    cursor: pointer;
+	-ms-touch-action: manipulation;
+    touch-action: manipulation;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.cnt-btn-op .btn-remove-op{
+	-webkit-transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    -moz-transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+.cnt-btn-op .btn-remove-op:hover, .cnt-btn-op .btn-remove-op:focus{
+	background-color: #f44336;
+	color: #eeeeee;
+}
+.cnt-btns-action-op{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	background-color: #ffffff;
+	box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2);
+}
+.cnt-btns-action-op .cnt-btn-clean, .cnt-btns-action-op .cnt-btn-save{
+	float: left;
+	width: 50%;
+}
+.cnt-btn-clean{
+	background-color: #f44336;
+}
+.cnt-btn-clean .btn-clean{
+	position: relative;
+	display: block;
+	padding: 15px;
+	margin: 0;
+	border: none;
+	font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+	text-align: center;
+    white-space: nowrap;
+	text-decoration: none;
+	outline: 0;
+    cursor: pointer;
+    vertical-align: middle;
+	color: rgba(255,255,255, 0.84);
+	border-radius: 0;
+	
+}
+.cnt-btn-save{
+	background-color: #009688;
+}
+.cnt-btn-save .btn-save{
+	position: relative;
+	display: block;
+	padding: 15px;
+	margin: 0;
+	border: none;
+	font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+	text-align: center;
+    white-space: nowrap;
+	text-decoration: none;
+	outline: 0;
+    cursor: pointer;
+    vertical-align: middle;
+	color: rgba(255,255,255, 0.84);
+	border-radius: 0;
+}
+@media (min-width: 992px){
+	.content-list-operations{
+		width: 33%;
+	}
+}
 
 /* INDEX */
 .main-content-ppto .mod-docs-header{
@@ -2807,7 +2982,14 @@ MATERIAL-SELECT
 	margin-top: -35vh;
 }
 .nav-pre{
-	background: rgba(0,0,0,0.5);
+	background: transparent;
+}
+.nav-pre .menu-trigger{
+	width: 36px;
+	height: 36px;
+	padding: 6px;
+	background: rgba(0,0,0,0.3);
+	border-radius: 3px;
 }
 .content__title-ppto-consolidado{
 	position: absolute;
@@ -2882,6 +3064,9 @@ MATERIAL-SELECT
 
 
 /* REPORTE PRESUPUESTO */
+.main-rep .mod-docs-body{
+	margin-top: -25vh;
+}
 .ppto__r-social{
 	font-size: 1.375em;
 	margin-top: 15px;
@@ -3121,8 +3306,65 @@ MATERIAL-SELECT
 .main-operations .mod-docs-header{
 	height: 25vh;
 }
+.content-form-operations{
+	-webkit-transition: margin 0.3s;
+    -moz-transition: margin 0.3s;
+    transition: margin 0.3s;
+}
+.panel-operations hr{
+	margin-top: 10px;
+}
+.panel-operations .div-op{
+	margin-left: -15px;
+    margin-right: -15px;
+	border-top: 2px solid #cacaca;
+}
+.panel-operations .form-group{
+	margin-top: 10px;
+}
+.panel-operations .form-control{
+	height: 34px;
+}
 .panel-operations .panel-body{
 	padding-top: 63px;
+}
+.panel-operations .panel-footer{
+	padding: 8px 15px;
+}
+.panel-operations .panel-footer .form-group{
+	margin-top: 0;
+    padding: 0;
+}
+.panel-operations .panel-footer .form-group .btn{
+	margin: 0;
+}
+.panel-operations .mad-select{
+	width: 100%;
+	height: 45px;
+}
+.panel-operations .mad-select ul{
+	margin-top: 5px;
+}
+.panel-operations .mad-select i.material-icons{
+	bottom: 7px;
+}
+.panel-operations .mad-select ul.mad-select-drop{
+	width: 100%;
+}
+.num-mov-label{
+	font-size: 23px;
+	color: #333;
+	padding: 0px 5px 14px 0px;
+}
+.content__num-mov .form-group{
+	display: inline-block;
+	margin-top: 0;
+}
+.content__label-fauto{
+	text-align: left;
+}
+.content__label-fauto .control-label{
+	font-size: 14px;
 }
 .content__f-input .form-group{
 	margin: 0;
@@ -3140,6 +3382,17 @@ MATERIAL-SELECT
 @media (min-width: 768px){
 	.main-operations .mod-docs-header{
 		height: 36vh;
+	}
+	.content__label-fauto{
+		text-align: right;
+	}
+}
+@media (min-width: 992px){
+	.content-form-operations{
+		margin-left: 16.66666667%;
+	}
+	.content-form-operations.list-operations-visible{
+		margin-left: 0;
 	}
 }
 
