@@ -11,21 +11,28 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\TwPcReporteEIR;
 use app\models\TwPcReporteSQL;
+use app\models\SpReportesConsolidadoVigencia;
 
 class SiteController extends Controller
 {
 	public function actionPrueba()
     {
-		
-		$model = new TwPcReporteSQL;
 
-		$twpcreportesql = $model->procedimiento();
+		$model = new SpReportesConsolidadoVigencia;
+
+		$spreportesconvig = $model->procedimiento();	
+    
+		$DATO_INI = $spreportesconvig[0];
 		
-		//$prueba = 'hail hydra';
+		foreach ($DATO_INI as $DATO_KEY) {			
+			$DATO[] = $DATO_KEY['NOMBRES_COLUMNAS'];	
+		}
 		
-	return $this->render('prueba',["DATO"=>$twpcreportesql]);
+		$bloque_col = explode("*_", $DATO[0]);
+
+	return $this->render('prueba',["DATO"=>$bloque_col]);
     }
-	
+
     public function behaviors()
     {
         return [
@@ -108,19 +115,19 @@ class SiteController extends Controller
 		$this->layout='main_seleccion';
         return $this->render('seleccion');
     }
-	
+
 	public function actionAdiciones()
     {
 		$this->layout='main_mant';
         return $this->render('adiciones');
     }
-	
+
 	public function actionReducciones()
     {
 		$this->layout='main_mant';
         return $this->render('reducciones');
     }
-	
+
 	public function actionAutopago()
     {
 		$this->layout='main_mant';
@@ -131,41 +138,41 @@ class SiteController extends Controller
     {
 		$this->layout='main_rep';
 		$model = new TwPcReporteEIR;
-		
+
 		$twpcreporteeir = $model->ReporteEIR();
-		
+
 		$RAZON_SOCIAL = $twpcreporteeir[1];
 		$CABEZERA = explode("_*", $twpcreporteeir[2]);
-		
+
         return $this->render('presupuesto',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA]);
     }
 	public function actionExcel()
     {
 		$this->layout=false;
-		
+
 		$model = new TwPcReporteEIR;
-		
+
 		$twpcreporteeir = $model->ReporteEIR();
-		
-		$BLOQUE1 = $twpcreporteeir[0];		
-		$RAZON_SOCIAL = $twpcreporteeir[1];		
-		$IN_PERIODO1 = $twpcreporteeir[3];		
-		$IN_PERIODO2 = $twpcreporteeir[4];		
-		$BLOQUE_F = explode("#", $twpcreporteeir[5]);		
-		$BLOQUE_H = explode("#", $twpcreporteeir[6]);		
+
+		$BLOQUE1 = $twpcreporteeir[0];
+		$RAZON_SOCIAL = $twpcreporteeir[1];
+		$IN_PERIODO1 = $twpcreporteeir[3];
+		$IN_PERIODO2 = $twpcreporteeir[4];
+		$BLOQUE_F = explode("#", $twpcreporteeir[5]);
+		$BLOQUE_H = explode("#", $twpcreporteeir[6]);
 		$CABEZERA = explode("_*", $twpcreporteeir[2]);
 
-		foreach ($BLOQUE1 as $BLOQUE1_KEY) {			
-			$BLOQUE1_ARR[] = $BLOQUE1_KEY['RUBRO'];	
-			$BLOQUE2_ARR[] = $BLOQUE1_KEY['DESCRIPCION'];	
-			$BLOQUE3_ARR[] = $BLOQUE1_KEY['PRESU_INI'];	
-			$BLOQUE4_ARR[] = $BLOQUE1_KEY['ADICIONES'];	
-			$BLOQUE5_ARR[] = $BLOQUE1_KEY['REDUCCIONES'];	
-			$BLOQUE6_ARR[] = $BLOQUE1_KEY['PRESU_DEFI'];	
-			$BLOQUE7_ARR[] = $BLOQUE1_KEY['AUT_PAGOS'];	
-			$BLOQUE8_ARR[] = $BLOQUE1_KEY['SALDO_EJECU'];	
+		foreach ($BLOQUE1 as $BLOQUE1_KEY) {
+			$BLOQUE1_ARR[] = $BLOQUE1_KEY['RUBRO'];
+			$BLOQUE2_ARR[] = $BLOQUE1_KEY['DESCRIPCION'];
+			$BLOQUE3_ARR[] = $BLOQUE1_KEY['PRESU_INI'];
+			$BLOQUE4_ARR[] = $BLOQUE1_KEY['ADICIONES'];
+			$BLOQUE5_ARR[] = $BLOQUE1_KEY['REDUCCIONES'];
+			$BLOQUE6_ARR[] = $BLOQUE1_KEY['PRESU_DEFI'];
+			$BLOQUE7_ARR[] = $BLOQUE1_KEY['AUT_PAGOS'];
+			$BLOQUE8_ARR[] = $BLOQUE1_KEY['SALDO_EJECU'];
 		}
-		
+
 	return $this->render('excel',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA, "BLOQUE1_ARR"=>$BLOQUE1_ARR, "BLOQUE2_ARR"=>$BLOQUE2_ARR, "BLOQUE3_ARR"=>$BLOQUE3_ARR, "BLOQUE4_ARR"=>$BLOQUE4_ARR, "BLOQUE5_ARR"=>$BLOQUE5_ARR, "BLOQUE6_ARR"=>$BLOQUE6_ARR, "BLOQUE7_ARR"=>$BLOQUE7_ARR, "BLOQUE8_ARR"=>$BLOQUE8_ARR,"IN_PERIODO1"=>$IN_PERIODO1,"IN_PERIODO2"=>$IN_PERIODO2, "BLOQUE_F"=>$BLOQUE_F, "BLOQUE_H"=>$BLOQUE_H]);
     }
 	public function actionPdf()
