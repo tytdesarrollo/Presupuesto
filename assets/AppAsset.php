@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
 		'http://code.jquery.com/ui/1.12.1/jquery-ui.min.js',
 		'js/menuppto.js',
 		'js/datepicker-es.js',
+		'js/mdselect.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

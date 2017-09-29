@@ -31,7 +31,7 @@ AppAsset::register($this);
 	<header id="header" class="clearfix">
 		<nav class="navbar nav-pre">
 			<div class="container-fluid">
-				<div class="pull-right">
+				<div class="pull-left">
 					<div class="content__icon-menu__aux">
 						<?= Html::a('<i class="material-icons icon__24">&#xE88A;</i>', ['site/index'], ['class' => 'menu-trigger']) ?>
 					</div>
@@ -68,11 +68,6 @@ AppAsset::register($this);
 							<a href="#" class="close-menu-ppto">
 								<i class="material-icons">&#xE14C;</i>
 							</a>
-						</div>
-					</div>
-					<div class="content__icon-menu__aux">
-						<div class="content-avatar__nav">
-							<?= Html::img('@web/img/avatar.png', ['alt' => 'avatar', 'class' => 'img-avatar img-circle']) ?>
 						</div>
 					</div>
 				</div>
