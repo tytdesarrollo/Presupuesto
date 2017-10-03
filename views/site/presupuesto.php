@@ -91,25 +91,25 @@ $this->title = 'Ejecución Presupuestal';
 									<div class="radio radio-primary">
 										<label>
 											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-											Opción #1 Plantilla de ejecución de ingreso
+											Opción #1 Recomposicion de presupuesto
 										</label>
 									</div>
 									<div class="radio radio-primary">
 										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" disabled>
-											Opción #2 para generar el reporte
+											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+											Opción #2 Reporte consolidado vigencia
 										</label>
 									</div>
 									<div class="radio radio-primary">
 										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" disabled>
-											Opción #3 para generar el reporte
+											<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+											Opción #3 Reporte presupuesto anticipo
 										</label>
 									</div>
 									<div class="radio radio-primary">
 										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" disabled>
-											Opción #4 para generar el reporte
+											<input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+											Opción #4 Reporte presupuesto filtro mes
 										</label>
 									</div>
 								</div>
