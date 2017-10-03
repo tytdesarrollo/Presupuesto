@@ -3,7 +3,7 @@ $this->title = 'Excel';
 
 //Inicio de exportación en Excel
 header('Content-type: application/vnd.ms-excel');
-header("Content-Disposition: attachment; filename=Reporte.xls"); //Indica el nombre del archivo resultante
+header("Content-Disposition: attachment; filename=EjecucionIngresos.xlsx"); //Indica el nombre del archivo resultante
 header("Pragma: no-cache");
 header("Expires: 0");
 
@@ -168,11 +168,6 @@ $table = "<table cellpadding='0' cellspacing='0' id='sheet0' border='0'>
 		  </tr>
 		  </tbody>
 		  </table>";
-		  /*
-		foreach($BLOQUE1_ARR as $BLOQUE1_ARR1){
-		$table.='<tr><td>'.$BLOQUE1_ARR1.'</td></tr>';
-		}
-		*/
  
  echo $table;
 ?>
