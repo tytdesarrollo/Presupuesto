@@ -30,7 +30,7 @@ class SiteController extends Controller
 		
 		$bloque_col = explode("*_", $DATO[0]);
 
-	return $this->render('prueba',["DATO"=>$bloque_col]);
+	return $this->render('prueba',["DATO"=>$DATO_INI]);
     }
 
     public function behaviors()
@@ -148,7 +148,23 @@ class SiteController extends Controller
     }
 	public function actionExcel()
     {
-		$this->layout=false;
+		if(Yii::$app->request->get('optionsRadios')=='option1'){
+		return $this->redirect(['site/ejecucioningresos', "from"=>Yii::$app->request->get('from'), "to"=>Yii::$app->request->get('to')]);		
+		
+		}elseif(Yii::$app->request->get('optionsRadios')=='option2'){
+		return $this->redirect(['site/excelconsolvig', "from"=>Yii::$app->request->get('from'), "to"=>Yii::$app->request->get('to')]);
+		
+		}elseif(Yii::$app->request->get('optionsRadios')=='option3'){
+		return $this->redirect(['site/excelpresupuestantic', "from"=>Yii::$app->request->get('from'), "to"=>Yii::$app->request->get('to')]);
+		
+		}elseif(Yii::$app->request->get('optionsRadios')=='option4'){
+		return $this->redirect(['site/excelpresupuestfiltro', "from"=>Yii::$app->request->get('from'), "to"=>Yii::$app->request->get('to')]);
+		
+		}
+    }
+	public function actionEjecucioningresos()
+    {
+        		$this->layout=false;
 
 		$model = new TwPcReporteEIR;
 
@@ -173,10 +189,43 @@ class SiteController extends Controller
 			$BLOQUE8_ARR[] = $BLOQUE1_KEY['SALDO_EJECU'];
 		}
 
-	return $this->render('excel',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA, "BLOQUE1_ARR"=>$BLOQUE1_ARR, "BLOQUE2_ARR"=>$BLOQUE2_ARR, "BLOQUE3_ARR"=>$BLOQUE3_ARR, "BLOQUE4_ARR"=>$BLOQUE4_ARR, "BLOQUE5_ARR"=>$BLOQUE5_ARR, "BLOQUE6_ARR"=>$BLOQUE6_ARR, "BLOQUE7_ARR"=>$BLOQUE7_ARR, "BLOQUE8_ARR"=>$BLOQUE8_ARR,"IN_PERIODO1"=>$IN_PERIODO1,"IN_PERIODO2"=>$IN_PERIODO2, "BLOQUE_F"=>$BLOQUE_F, "BLOQUE_H"=>$BLOQUE_H]);
+	return $this->render('excelejecucioningreso',["RAZON_SOCIAL"=>$RAZON_SOCIAL, "CABEZERA"=>$CABEZERA, "BLOQUE1_ARR"=>$BLOQUE1_ARR, "BLOQUE2_ARR"=>$BLOQUE2_ARR, "BLOQUE3_ARR"=>$BLOQUE3_ARR, "BLOQUE4_ARR"=>$BLOQUE4_ARR, "BLOQUE5_ARR"=>$BLOQUE5_ARR, "BLOQUE6_ARR"=>$BLOQUE6_ARR, "BLOQUE7_ARR"=>$BLOQUE7_ARR, "BLOQUE8_ARR"=>$BLOQUE8_ARR,"IN_PERIODO1"=>$IN_PERIODO1,"IN_PERIODO2"=>$IN_PERIODO2, "BLOQUE_F"=>$BLOQUE_F, "BLOQUE_H"=>$BLOQUE_H]);
     }
-	public function actionPdf()
+	
+	public function actionExcelconsolvig()
     {
-        return $this->render('pdf');
+		//$this->layout=false;
+		
+		$model = new SpReportesConsolidadoVigencia;
+
+		$spreportesconvig = $model->procedimiento();	
+    
+		$DATO_INI = $spreportesconvig[0];		
+		
+		foreach ($DATO_INI as $DATO_KEY) {			
+			$DATO[] = $DATO_KEY['NOMBRES_COLUMNAS'];	
+		}
+		
+		$BLOQUE_COL = explode("*_", $DATO[0]);
+		
+		foreach ($DATO_INI as $COLUMN_KEY) {		
+				foreach ($BLOQUE_COL as $BLOQUE_COL_KEY) {		
+							$COLUMN_ARR[] = $COLUMN_KEY[$BLOQUE_COL_KEY];	
+				}
+		}
+		
+        return $this->render('excelconsolvig',["DATO"=>$BLOQUE_COL, "COLUMN_ARR"=>$COLUMN_ARR]);
+    }
+		
+	public function actionExcelpresupuestantic()
+    {
+		$this->layout=false;
+        return $this->render('excelpresupuestantic');
+    }
+			
+	public function actionExcelpresupuestfiltro()
+    {
+		$this->layout=false;
+        return $this->render('excelpresupuestfiltro');
     }
 }
