@@ -3093,6 +3093,15 @@ body {
 	font-size: 1.6em;
 	text-align: center;
 }
+.main-rep .mad-select{
+	width: 100%;
+}
+.main-rep .mad-select ul{
+	margin-top: 5px;
+}
+.main-rep .mad-select ul.mad-select-drop{
+	width: 100%;
+}
 @media (min-width: 768px){
 	.content-ppto__f-hoy{
 		float: right;
@@ -3294,12 +3303,6 @@ body {
 #myDiv {
   display: none;
   text-align: center;
-}
-
-/* Experimento */
-.Hom_pea {
-    width: 100%;
-    height: 50vh;
 }
 
 /* ESTILOS ADICIONES */
