@@ -57,7 +57,51 @@ $this->title = 'Ejecución Presupuestal';
 							</div>
 						</div>
 						<hr>
-						
+						<div class="row">
+							<div class="col-xs-3 col-sm-2">
+								<div class="form-group label-floating"><label for="codFrz" class="control-label">Fuerza</label><input type="text" class="form-control" id="codFrz"></div>
+							</div>
+							<div class="col-xs-9 col-sm-10">
+								<div class="form-group label-floating"><label for="dscFrz" class="control-label">Descripción</label><input type="text" class="form-control" id="dscFrz"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-6">
+								<div class="form-group select-m">
+									<label class="control-label" for="modalidad">
+										Modalidad
+									</label>
+									<div class="mad-select" id="modalidadSelect">
+										<ul>
+											<li data-value="1">Seleccionar</li>
+											<li data-value="2">Modalidad 1</li>
+											<li data-value="3">Modalidad 2</li>
+											<li data-value="4">modalidad 3</li>
+											<li data-value="5">Modalidad 4</li>
+										</ul>
+										<input type="hidden" id="modalidad" name="myOptions" value="1" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<div class="form-group select-m">
+									<label class="control-label" for="vigencia">
+										Vigencia
+									</label>
+									<div class="mad-select" id="vigenciaSelect">
+										<ul>
+											<li data-value="1">Seleccionar</li>
+											<li data-value="2">2015</li>
+											<li data-value="3">2016</li>
+											<li data-value="4">2017</li>
+											<li data-value="5">2018</li>
+										</ul>
+										<input type="hidden" id="vigencia" name="myOptions" value="1" class="form-control">
+									</div>
+								</div>		
+							</div>
+						</div>
+						<hr>
 						<div class="row">
 							<div class="col-sm-12">
 								<h3 class="text-center">Selecciona el periodo a consultar</h3>
@@ -66,14 +110,14 @@ $this->title = 'Ejecución Presupuestal';
 											<div class="content-ppto__rango mrg__top-30 text-center">
 												<div class="row">
 													<div class="col-xs-6">
-														<label for="from">Desde</label>
 														<div class="form-group">
+															<label for="from">Desde</label>
 															<input class="form-control" id="from" name="from" type="text" data-type="date" required="true">
 														</div>
 													</div>
 													<div class="col-xs-6">
-														<label for="to">Hasta</label>
 														<div class="form-group">
+															<label for="to">Hasta</label>
 															<input type="text" type="text" data-type="date" id="to" name="to" class="form-control" required="true">
 														</div>
 													</div>
@@ -83,9 +127,9 @@ $this->title = 'Ejecución Presupuestal';
 									</div>
 							</div>
 						</div>
-						
 						<hr>
 						<div class="row">
+							<h3 class="text-center">Tipos de reporte</h3>
 							<div class="col-sm-12">
 								<div class="form-group">
 									<div class="radio radio-primary">
@@ -118,7 +162,7 @@ $this->title = 'Ejecución Presupuestal';
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group text-center">
-									<?= Html::a('Cancelar', ['site/seleccion'], ['class'=>'btn btn-danger btn-raised']) ?>
+									<?= Html::a('Cancelar', ['site/index'], ['class'=>'btn btn-danger btn-raised']) ?>
 									<button onclick="Alerta()" class="btn btn-primary btn-raised">Generar</button></div>
 							</div>
 						</div>

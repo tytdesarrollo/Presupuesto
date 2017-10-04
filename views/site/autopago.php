@@ -15,10 +15,10 @@ $this->title = 'Autorización de pago';
 </div>
 <div class="row">
 	<div class="col-xs-3 col-sm-2">
-		<div class="form-group label-floating"><label for="codESM" class="control-label">Código</label><input type="text" class="form-control" id="codESM"></div>
+		<div class="form-group label-floating"><label for="codESM" class="control-label">Fuerza</label><input type="text" class="form-control" id="codESM"></div>
 	</div>
 	<div class="col-xs-9 col-sm-10">
-		<div class="form-group label-floating"><label for="dscESM" class="control-label">Fuerza</label><input type="text" class="form-control" id="dscESM"></div>
+		<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
 	</div>
 </div>
 <div class="row">

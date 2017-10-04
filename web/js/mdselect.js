@@ -6,13 +6,13 @@ $(function () {
 	$(".mad-select").each(function() {
 		var $input = $(this).find("input"),
 			$ul = $(this).find("> ul"),
-			$ulDrop =  $ul.clone().addClass("mad-select-drop");
-
+			$ulDrop =  $ul.clone().addClass("mad-select-drop"),
+			$sltM = $(this).parent(".form-group");
 		$(this)
 		  .append('<i class="material-icons">arrow_drop_down</i>', $ulDrop)
 		  .on({
 		  hover : function() { madSelectHover ^= 1; },
-		  click : function() { $ulDrop.toggleClass("show");}
+		  click : function() { $ulDrop.toggleClass("show"); $sltM .toggleClass("is-focused");}
 		});
 
 		// PRESELECT
@@ -29,6 +29,9 @@ $(function () {
 		$ul.on("click", function() {
 		  var liTop = $ulDrop.find("li.selected").position().top;
 		  $ulDrop.scrollTop(liTop + $ulDrop[0].scrollTop);
+		});
+		$(document).on("mouseup", function(){
+			if(!madSelectHover) $sltM.removeClass("is-focused");
 		});
 	});
 
