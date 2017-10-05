@@ -9,8 +9,64 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 $this->title = 'Adiciones';
-?>
-<div class="panel panel-default panel-operations">
+					
+					?>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script>
+	var opcionesCodigo = new Array();
+	var opcionesDescri = new Array();
+	
+  	$(function(){
+
+		var phpData = new Array();
+		phpData = '<?php echo json_encode($FUERZA)?>';		
+
+		var arrayPhp = JSON.parse(phpData);
+		
+
+		for (var i=0 ; i<arrayPhp.length ; i++){		
+			opcionesCodigo.push(arrayPhp[i].COD_FUERZA);
+			opcionesDescri.push(arrayPhp[i].NOM_FUERZA);
+		}		
+
+    	var availableTags1 = opcionesCodigo;
+    	$("#codfuerza").autocomplete({
+      		source: availableTags1
+    	});
+
+    	var availableTags2 = opcionesDescri;
+    	$("#dscfuerza").autocomplete({
+      		source: availableTags2
+    	});
+  	});
+
+	$(document).ready(function () {
+		/////////////////////////////////////////////
+	    $("#dscfuerza").keyup(function () {
+	        var value = $(this).val();
+	        for (var i=0 ; i<opcionesCodigo.length ; i++){		
+				if(value === opcionesDescri[i]){					
+					$("#codfuerza").focusin();
+					$("#codfuerza").val(opcionesCodigo[i]);
+				}
+			}		        
+	    });
+	   
+	});
+	</script>					
+					
+				<?php
+					$form = ActiveForm::begin([
+					"method" => "post",
+					"id" => "adi-form",
+					"enableClientValidation" => false,
+					"enableAjaxValidation" => true,
+					]); 
+				?>	
+					
+			<div class="panel panel-default panel-operations">
 	<div class="panel-body">
 		<div class="row">
 			<div class="col-xs-12 col-sm-2">
@@ -62,11 +118,15 @@ $this->title = 'Adiciones';
 
 					<div class="mad-select" id="modalidadSelect">
 						<ul>
-							<li data-value="1">Seleccionar</li>
-							<li data-value="2">Modalidad 1</li>
-							<li data-value="3">Modalidad 2</li>
-							<li data-value="4">modalidad 3</li>
-							<li data-value="5">Modalidad 4</li>
+						<li class="selected" data-value="#">Seleccione</li>
+						<?php
+						
+						for($i=0;$i<count($MODALIDAD);$i++) {
+
+										echo "<li data-value=".$MODALIDAD[$i]['COD_MODALIDAD'].">".$MODALIDAD[$i]['NOM_MODALIDAD']."</li>";
+										
+									}
+						?>
 						</ul>
 						<input type="hidden" id="modalidad" name="myOptions" value="1" class="form-control">
 					</div>
@@ -80,11 +140,15 @@ $this->title = 'Adiciones';
 
 					<div class="mad-select" id="vigenciaSelect">
 						<ul>
-							<li data-value="1">Seleccionar</li>
-							<li data-value="2">2015</li>
-							<li data-value="3">2016</li>
-							<li data-value="4">2017</li>
-							<li data-value="5">2018</li>
+						<li class="selected" data-value="#">Seleccione</li>
+						<?php
+						
+						for($i=0;$i<count($VIGENCIA);$i++) {
+
+										echo "<li data-value=".$VIGENCIA[$i]['ANIO_VIGENCIA'].">".$VIGENCIA[$i]['ANIO_VIGENCIA']."</li>";
+										
+									}
+						?>
 						</ul>
 						<input type="hidden" id="vigencia" name="myOptions" value="1" class="form-control">
 					</div>
@@ -97,19 +161,21 @@ $this->title = 'Adiciones';
 				<h2 class="fnt__Medium text-center"><?= Html::encode($this->title) ?></h2>
 			</div>
 			<div class="row">
-				<div class="col-xs-3 col-sm-2">
-					<div class="form-group label-floating"><label for="codESM" class="control-label">Fuerza</label><input type="text" class="form-control" id="codESM"></div>
+				<div class="col-xs-3 col-sm-10">
+					
+					<div class="form-group label-floating"><label for="dscfuerza" class="control-label">Escriba el nombre de la Fuerza</label><input type="text" class="form-control" id="dscfuerza"></div>
 				</div>
-				<div class="col-xs-9 col-sm-10">
-					<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
+				<div class="col-xs-9 col-sm-2">
+					<div class="form-group label-floating" id="log"><label for="codfuerza" class="control-label"></label><input type="text" class="form-control" id="codfuerza" disabled></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-3 col-sm-2">
-					<div class="form-group label-floating"><label for="codESM" class="control-label">ESM</label><input type="text" class="form-control" id="codESM"></div>
+				<div class="col-xs-3 col-sm-10">
+					<div class="form-group label-floating"><label for="dscESM" class="control-label">Escriba el nombre de la ESM</label><input type="text" class="form-control" id="dscESM"></div>
 				</div>
-				<div class="col-xs-9 col-sm-10">
-					<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
+				<div class="col-xs-9 col-sm-2">
+				<div class="form-group label-floating"><label for="codESM" class="control-label"></label><input type="text" class="form-control" id="codESM" disabled></div>
+					
 				</div>
 			</div>
 			<div class="row">
@@ -130,8 +196,8 @@ $this->title = 'Adiciones';
 			<?= Html::a('Agregar', '#cntOptn', ['id' => 'btnAddOptn', 'class'=>'btn btn-primary btn-raised']) ?>
 		</div>
 	</div>
-</div>
-<div class="content-list-operations">
+		</div>
+		<div class="content-list-operations">
 	<div class="list-operations">
 		<div class="title-list-op">
 			<h3 class="fnt__Medium text-center">Listado de operaciones</h3>
@@ -170,4 +236,8 @@ $this->title = 'Adiciones';
 			<a href="#" class="btn btn-save">Guardar</a>
 		</div>
 	</div>
-</div>
+	</div>
+	<?php ActiveForm::end(); ?>
+	
+	
+	
