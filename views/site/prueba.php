@@ -1,8 +1,21 @@
-<?PHP VAR_DUMP($DATO[0]) ?>
+<?PHP //VAR_DUMP($DATO[0]) ?>
 
 <?php
 								
-									//echo $DATO[1].'<br>';	
+									foreach($DATO as $row):
+									
+									endforeach;
 
+				
+									for($i=0;$i<count($row);$i++) {
+
+										$row[$i]['COD_FUERZA'].'<br />';
+										$row[$i]['NOM_FUERZA'].'<br />';
+										
+										$items = array( $row[$i]['NOM_FUERZA']=>$row[$i]['COD_FUERZA']);
+
+									}
+									
+									VAR_DUMP($items);
 								 ?>
 								
