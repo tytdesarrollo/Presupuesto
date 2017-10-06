@@ -12,25 +12,21 @@ use app\models\ContactForm;
 use app\models\TwPcReporteEIR;
 use app\models\TwPcReporteSQL;
 use app\models\SpReportesConsolidadoVigencia;
+use app\models\SpFuerza;
+use app\models\SpModalidad;
+use app\models\SpVigencia;
+use app\models\SpEsm;
 
 class SiteController extends Controller
 {
 	public function actionPrueba()
     {
 
-		$model = new SpReportesConsolidadoVigencia;
+		$model = new SpFuerza;
 
-		$spreportesconvig = $model->procedimiento();	
-    
-		$DATO_INI = $spreportesconvig[0];
-		
-		foreach ($DATO_INI as $DATO_KEY) {			
-			$DATO[] = $DATO_KEY['NOMBRES_COLUMNAS'];	
-		}
-		
-		$bloque_col = explode("*_", $DATO[0]);
+		$spfuerza = $model->procedimiento();	
 
-	return $this->render('prueba',["DATO"=>$DATO_INI]);
+	return $this->render('prueba',["DATO"=>$spfuerza]);
     }
 
     public function behaviors()
@@ -118,8 +114,27 @@ class SiteController extends Controller
 
 	public function actionAdiciones()
     {
-		$this->layout='main_mant';
-        return $this->render('adiciones');
+		
+				$this->layout='main_mant';
+				
+		$model = new SpModalidad;
+		$model2 = new SpVigencia;
+		$model4 = new SpEsm;
+		$model3 = new SpFuerza;
+
+		$spmodalidad = $model->procedimiento();
+		$spvigencia = $model2->procedimiento();
+		$spesm = $model4->procedimiento();
+		$spfuerza = $model3->procedimiento();
+		
+			foreach($spmodalidad as $spmodalidadarr):
+			endforeach;
+			foreach($spvigencia as $spvigenciaarr):
+			endforeach;
+			foreach($spfuerza as $spfuerzaarr):
+			endforeach;			
+
+        return $this->render('adiciones',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
     }
 
 	public function actionReducciones()
@@ -227,5 +242,26 @@ class SiteController extends Controller
     {
 		$this->layout=false;
         return $this->render('excelpresupuestfiltro');
+    }
+	
+	public function actionAjax()
+    {
+
+	
+	
+    }
+	
+	public function actionFuerza()
+    {
+
+
+		
+	}
+	
+		public function actionEsm()
+    {
+
+	
+	
     }
 }
