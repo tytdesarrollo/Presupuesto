@@ -187,7 +187,7 @@ $this->title = 'Reducciones';
 							if(value === opcionesDescriEsm[i]){
 								$("#codESM").focusin();
 								$("#codESM").val(opcionesCodigoEsm[i]);				
-								
+								bandera = 1;
 							}
 						}		
 					}
@@ -289,7 +289,7 @@ $this->title = 'Reducciones';
 									}
 						?>
 						</ul>
-						<input type="hidden" id="vigencia" name="vigencia" value="1" class="form-control">
+						<input type="hidden" id="vigenciaIN" name="vigencia" value="1" class="form-control">
 					</div>
 				</div>		
 			</div>
@@ -322,49 +322,216 @@ $this->title = 'Reducciones';
 			</div>
 		</div>
 	</div>
-	<div class="panel-footer clearfix">
+	<div class="panel-footer clearfix" id="divbotonagregar">
 		<div class="form-group pull-right">
-			<?= Html::a('Agregar', '#cntOptn', ['id' => 'btnAddOptn', 'class'=>'btn btn-primary btn-raised']) ?>
+			<a class="btn btn-primary btn-raised" id="btnAddOptn" onclick="agregarItemLista()">Agregar</a>
 		</div>
 	</div>
 		</div>
-<div class="content-list-operations">
+<div class="content-list-operations" id="listaItems">
 	<div class="list-operations">
 		<div class="title-list-op">
 			<h3 class="fnt__Medium text-center">Listado de operaciones</h3>
 		</div>
-		<div class="list-item-op">
-			<div class="cnt-btn-op">
-				<a href="#" class="btn-remove-op">
-					<i class="material-icons">&#xE14C;</i>
-				</a>
-			</div>
-			<dl class="info-op">
-				<dt>ESM</dt>
-				<dd>123456789</dd>
-			</dl>
-			<dl class="info-op">
-				<dt>Fuerza</dt>
-				<dd>70000</dd>
-			</dl>
-			<div class="cnt-v-op">
-				<dl class="info-op">
-					<dt>Valor autorizado</dt>
-					<dd>$100.000.000</dd>
-				</dl>
-				<dl class="info-op">
-					<dt>Amortización</dt>
-					<dd>$100.000.000</dd>
-				</dl>
-			</div>
+		<div id="divListas">
+			
 		</div>
 	</div>
 	<div class="cnt-btns-action-op">
 		<div class="cnt-btn-clean">
-			<a href="#" class="btn btn-clean">Limpiar listado</a>
+			<a href="#" class="btn btn-clean" onclick="eliminarLista()">Limpiar listado</a>
 		</div>
 		<div class="cnt-btn-save">
-			<a href="#" class="btn btn-save">Guardar</a>
+			<a href="#" class="btn btn-save" onclick="guardarListado()">Guardar</a>
 		</div>
 	</div>
 </div>
+
+<?php ActiveForm::end(); ?>
+
+<script type="text/javascript">
+	var arrayNumDoc = new Array();
+	var arrayFecMov = new Array();
+	var arrayFecAut = new Array();
+	var arrayModalidad = new Array();
+	var arrayVigencia = new Array();
+	var arrayCodigosFuerza = new Array();
+	var arrayCodigosEsm = new Array();
+	var arrayAutPagar = new Array();
+
+	function agregarItemLista(){
+		var codidoD = document.getElementById("numMov").value;
+		var fechMov = document.getElementById("fMovinput").value;
+		var fechAut = document.getElementById("finput").value;
+		var codigoM = document.getElementById("modalidad").value;
+		var codigoV = document.getElementById("vigenciaIN").value;
+		var codigoF = document.getElementById("codFrz").value;
+		var codigoE = document.getElementById("codESM").value;
+		var pagoAut = document.getElementById("adn").value;
+
+		arrayNumDoc.push(codidoD);
+		arrayFecMov.push(fechMov);
+		arrayFecAut.push(fechAut);
+		arrayModalidad.push(codigoM);
+		arrayVigencia.push(codigoV);
+		arrayCodigosFuerza.push(codigoF);
+		arrayCodigosEsm.push(codigoE);
+		arrayAutPagar.push(pagoAut);
+
+		mostrarListado();
+	}
+
+	function mostrarListado(){
+		var listado = '';
+
+		for(var i=0 ; i<arrayCodigosFuerza.length ; i++){
+			listado = listado +					
+				'<div class="list-item-op">'+
+					'<div class="cnt-btn-op">'+
+						'<a onclick="eliminarItemLista('+i+')" class="btn-remove-op">'+
+							'<i class="material-icons">&#xE14C;</i>'+
+						'</a>'+
+					'</div>'+
+					'<dl class="info-op">'+
+						'<dt>ESM</dt>'+
+						'<dd>'+arrayCodigosEsm[i]+'</dd>'+
+					'</dl>'+
+					'<dl class="info-op">'+
+						'<dt>Fuerza</dt>'+
+						'<dd>'+arrayCodigosFuerza[i]+'</dd>'+
+					'</dl>'+
+					'<div class="cnt-v-op">'+
+						'<dl class="info-op">'+
+							'<dt>Valor de reducción</dt>'+
+							'<dd>$'+arrayAutPagar[i]+'</dd>'+
+						'</dl>'+
+					'</div>'+
+				'</div>';
+		}
+
+		document.getElementById("divListas").innerHTML = listado;
+	}
+
+	function eliminarItemLista(posicionEliminar){
+		var arrayTempNumDoc = new Array();
+		var arrayTempFecMov = new Array();
+		var arrayTempFecAut = new Array();
+		var arrayTempModalidad = new Array();
+		var arrayTempVigencia = new Array();
+		var arrayTempCodigosFuerza = new Array();
+		var arrayTempCodigosEsm = new Array();
+		var arrayTempAutPagar = new Array();				
+
+		for(var i=0 ; i<arrayCodigosFuerza.length ; i++){
+			if(i != posicionEliminar){
+				arrayTempNumDoc.push(arrayNumDoc);
+				arrayTempFecMov.push(arrayFecMov);
+				arrayTempFecAut.push(arrayFecAut);
+				arrayTempModalidad.push(arrayModalidad);
+				arrayTempVigencia.push(arrayVigencia);
+				arrayTempCodigosFuerza.push(arrayCodigosFuerza[i]);
+				arrayTempCodigosEsm.push(arrayCodigosEsm[i]);
+				arrayTempAutPagar.push(arrayAutPagar[i]);
+			}
+		}
+
+		arrayNumDoc = arrayTempNumDoc;
+		arrayFecMov = arrayTempFecMov;
+		arrayFecAut = arrayTempFecAut;
+		arrayModalidad = arrayTempModalidad;
+		arrayVigencia = arrayTempVigencia;
+		arrayCodigosFuerza = arrayTempCodigosFuerza;
+		arrayCodigosEsm = arrayTempCodigosEsm;
+		arrayAutPagar = arrayTempAutPagar;
+
+		if(arrayCodigosFuerza.length == 0){
+			$("#listaItems").removeClass("list-operations-visible");		
+			$("#contform").removeClass("list-operations-visible");	
+		}
+
+		mostrarListado();
+	}
+
+	function eliminarLista(){
+
+
+	swal({
+		title: '¿Esta seguro?',
+		text: "¿Realmente desea eliminar la lista?",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#009688',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'No, cancelar!',
+		confirmButtonText: 'Si, eliminar!'
+	}).then(function () {
+		arrayCodigosFuerza = new Array();
+		arrayCodigosEsm = new Array();
+		arrayAutPagar = new Array();
+		arrayAutAntic = new Array(); 
+
+		$("#listaItems").removeClass("list-operations-visible");		
+		$("#contform").removeClass("list-operations-visible");		
+
+		swal(
+			'Eliminado!',
+			'La lista ha sido eliminada correctamente.',
+			'success'
+		)
+	})
+				
+	}
+
+	function guardarListado(){
+
+		$.ajax({
+			url:'<?php echo Url::toRoute(['site/guardarareduccion']); ?>',
+			method: "GET",
+			data: {'numdoc':arraytoChar(arrayNumDoc),
+				   'fecmov':arraytoChar(arrayFecMov),
+				   'fecaut':arraytoChar(arrayFecAut),
+				   'modalidad':arraytoChar(arrayModalidad),
+				   'vigencia':arraytoChar(arrayVigencia),
+				   'fuerza':arraytoChar(arrayCodigosFuerza),
+				   'esm':arraytoChar(arrayCodigosEsm),
+				   'autpag':arraytoChar(arrayAutPagar)},
+			success: function (data) {						
+				swal("Operacion completa", "Datos guardados correctamente", "success");				
+			},
+			error: function (error) {
+			    swal("Error al guardar", "No se han podido almacenar los datos en la base de datos", "error");
+			}
+		});
+		
+	}
+
+	function arraytoChar(array){
+		var cadena = '';
+
+		for(var i=0 ; i<array.length ; i++){
+			cadena = cadena+array[i]+',';
+		}
+
+		cadena = cadena.substring(0,(cadena.length-1))
+
+		return cadena;
+	}
+
+	$(botonAgregar());
+
+	var bandera = 0;
+	function botonAgregar(){		
+		var codidoD = document.getElementById("numMov").value;	
+		var pagoAut = document.getElementById("adn").value;
+		
+
+		if (pagoAut == "" || bandera == 0 || codidoD == "") {		
+		console.log(bandera)	;
+			document.getElementById("divbotonagregar").style.display = 'none';
+		}else{			
+			document.getElementById("divbotonagregar").style.display = 'block';
+		}
+	}setInterval(botonAgregar,1000);
+	
+	
+</script>
