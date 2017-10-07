@@ -21,6 +21,9 @@ use app\models\SpFuerza;
 use app\models\SpModalidad;
 use app\models\SpVigencia;
 use app\models\SpEsm;
+use app\models\SpInsertAutPagos;
+use app\models\SpInsertReduc;
+use app\models\SpInsertAdi;
 
 class SiteController extends Controller
 {
@@ -509,19 +512,57 @@ class SiteController extends Controller
         }
     }
 	
-	public function actionAjax()
-    {
+	public function actionGuardarautorizacionpago()
+    {   
 
-	
-	
+        $c1  = Yii::$app->request->get('numdoc');
+        $c2  = Yii::$app->request->get('fecmov');
+        $c3  = Yii::$app->request->get('fecaut');
+        $c4  = Yii::$app->request->get('fuerza');
+        $c5  = Yii::$app->request->get('modalidad');
+        $c6  = Yii::$app->request->get('vigencia');
+        $c7  = Yii::$app->request->get('esm');
+        $c8  = Yii::$app->request->get('autpag');
+        $c9  = Yii::$app->request->get('autant');
+        $c10 = Yii::$app->request->get('mesfac');
+        $model = new SpInsertAutPagos;
+        $insertAutPag = $model->procedimiento($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8,$c9,$c10);   
+        
+        //echo $c1." - ".$c2." - ".$c3." - ".$c4." - ".$c5." - ".$c6." - ".$c7." - ".$c8." - ".$c9." - ".$c10;
+    
     }
 	
-	public function actionFuerza()
+	public function actionGuardarareduccion()
     {
+        $c1  = Yii::$app->request->get('numdoc');
+        $c2  = Yii::$app->request->get('fecmov');
+        $c3  = Yii::$app->request->get('fecaut');
+        $c4  = Yii::$app->request->get('fuerza');
+        $c5  = Yii::$app->request->get('modalidad');
+        $c6  = Yii::$app->request->get('vigencia');
+        $c7  = Yii::$app->request->get('esm');
+        $c8  = Yii::$app->request->get('autpag');
+        $model = new SpInsertReduc;
+        $insertAutPag = $model->procedimiento($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8);   
 
+        //echo $c1." - ".$c2." - ".$c3." - ".$c4." - ".$c5." - ".$c6." - ".$c7." - ".$c8;
+        
+    }
 
-		
-	}
+     public function actionGuardararadicion(){
+        $c1  = Yii::$app->request->get('numdoc');
+        $c2  = Yii::$app->request->get('fecmov');
+        $c3  = Yii::$app->request->get('fecaut');
+        $c4  = Yii::$app->request->get('fuerza');
+        $c5  = Yii::$app->request->get('modalidad');
+        $c6  = Yii::$app->request->get('vigencia');
+        $c7  = Yii::$app->request->get('esm');
+        $c8  = Yii::$app->request->get('autpag');
+        $model = new SpInsertAdi;
+        $insertAutPag = $model->procedimiento($c1,$c2,$c3,$c4,$c5,$c6,$c7,$c8);   
+
+        //echo $c1." - ".$c2." - ".$c3." - ".$c4." - ".$c5." - ".$c6." - ".$c7." - ".$c8;
+    }
 	
 		public function actionEsm()
     {
