@@ -141,20 +141,19 @@ class SiteController extends Controller
 				
 		$model = new SpModalidad;
 		$model2 = new SpVigencia;
-		$model4 = new SpEsm;
 		$model3 = new SpFuerza;
 
 		$spmodalidad = $model->procedimiento();
 		$spvigencia = $model2->procedimiento();
-		$spesm = $model4->procedimiento();
 		$spfuerza = $model3->procedimiento();
+
 		
 			foreach($spmodalidad as $spmodalidadarr):
 			endforeach;
 			foreach($spvigencia as $spvigenciaarr):
 			endforeach;
 			foreach($spfuerza as $spfuerzaarr):
-			endforeach;			
+			endforeach;		
 
         return $this->render('adiciones',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
     }
@@ -162,13 +161,47 @@ class SiteController extends Controller
 	public function actionReducciones()
     {
 		$this->layout='main_mant';
-        return $this->render('reducciones');
+				
+		$model = new SpModalidad;
+		$model2 = new SpVigencia;
+		$model3 = new SpFuerza;
+
+		$spmodalidad = $model->procedimiento();
+		$spvigencia = $model2->procedimiento();
+		$spfuerza = $model3->procedimiento();
+
+		
+			foreach($spmodalidad as $spmodalidadarr):
+			endforeach;
+			foreach($spvigencia as $spvigenciaarr):
+			endforeach;
+			foreach($spfuerza as $spfuerzaarr):
+			endforeach;		
+
+        return $this->render('reducciones',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
     }
 
 	public function actionAutopago()
     {
 		$this->layout='main_mant';
-        return $this->render('autopago');
+				
+		$model = new SpModalidad;
+		$model2 = new SpVigencia;
+		$model3 = new SpFuerza;
+
+		$spmodalidad = $model->procedimiento();
+		$spvigencia = $model2->procedimiento();
+		$spfuerza = $model3->procedimiento();
+
+		
+			foreach($spmodalidad as $spmodalidadarr):
+			endforeach;
+			foreach($spvigencia as $spvigenciaarr):
+			endforeach;
+			foreach($spfuerza as $spfuerzaarr):
+			endforeach;		
+
+        return $this->render('autopago',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
     }
 
 	public function actionPresupuesto()
@@ -492,7 +525,43 @@ class SiteController extends Controller
 	
 		public function actionEsm()
     {
+		if (isset($_POST['modalidad'])){		
+		
+		$modalidad = $_POST['modalidad'];
+		$vigencia = $_POST['vigencia'];
+		$codfuerza = $_POST['codFrz'];
+		
+		Yii::$app->session['modalidad'] = $modalidad;		
+		Yii::$app->session['vigencia'] = $vigencia;		
+		Yii::$app->session['codFrz'] = $codfuerza;		
+		
+		}//echo(($modalidad)?json_encode($modalidad):'');		
+		//echo(($vigencias)?json_encode($vigencias):'');		
+		//echo(($codfuerza)?json_encode($codfuerza):'');	
+		
+		
+				$model4 = new SpEsm;
+				$spesm = $model4->procedimiento();
+				
+			foreach($spesm as $spesmarr):
+			endforeach;	
+			
+									$codigos = "";
+									$desc = "";
+									for($i=0;$i<count($spesmarr);$i++) {
 
+										$codigos = $codigos.$spesmarr[$i]['CODI_ESM'].'_*';
+										$desc = $desc.$spesmarr[$i]['NOM_ESM'].'_*';									
+									}
+									
+									$ESM = array($codigos,$desc);
+									
+
+		echo(($ESM)?json_encode($ESM):'');	
+		
+
+		
+		
 	
 	
     }
