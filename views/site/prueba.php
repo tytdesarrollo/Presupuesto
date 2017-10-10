@@ -6,15 +6,17 @@
 									
 									endforeach;
 
-				
+									$codigos = "";
+									$desc = "";
 									for($i=0;$i<count($row);$i++) {
 
-										$row[$i]['COD_FUERZA'].'<br />';
-										$row[$i]['NOM_FUERZA'].'<br />';
+										$codigos = $codigos.$row[$i]['CODI_ESM'].'_*';
+										$desc = $desc.$row[$i]['NOM_ESM'].'_*';									
 										
-										$items = array( $row[$i]['NOM_FUERZA']=>$row[$i]['COD_FUERZA']);
 
 									}
+									
+									$items = array($codigos,$desc);
 									
 									VAR_DUMP($items);
 								 ?>

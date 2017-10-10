@@ -90,7 +90,7 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<!--<script src="https://code.highcharts.com/highcharts.src.js"></script>-->
 <script>
 	$(function () {
 		$.material.init();
@@ -133,15 +133,16 @@ $( function() {
     }
  });
 </script>
+<!--
 <script>
-	Highcharts.chart('chart', {
+  Highcharts.chart('chart', {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
     },
-	colors: ['#00b7a6', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
+  colors: ['#00b7a6', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
    '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
     title: {
         text: ''
@@ -149,14 +150,14 @@ $( function() {
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-	plotOptions: {
+  plotOptions: {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
                 enabled: false
                 },
-				showInLegend: true
+        showInLegend: true
         }
     },
     series: [{
@@ -173,4 +174,4 @@ $( function() {
         }]
     }]
 });
-</script>
+</script>-->
