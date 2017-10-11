@@ -2258,6 +2258,7 @@ a.color-white:hover{
 	position: absolute;
     top: -100px;
     left: calc(50% - 200px);
+	width: 400px;
 }
 .box-circle > #circle{
 	width: 100%;
@@ -2352,7 +2353,7 @@ MATERIAL-SELECT
   border-bottom: 1px solid rgba(0,0,0,0.12);
   padding-right: 13px;
   min-width: 100px;
-  height: 38px;
+  height: 45px;
 }
 .mad-select ul {
   list-style: none;
@@ -2363,19 +2364,19 @@ MATERIAL-SELECT
 .mad-select li{
   vertical-align: middle;
   white-space: nowrap;
-  height:24px;
+  height:40px;
   line-height:24px;
   display: none;
   padding: 8px 16px;
   margin:0;
-  box-sizing: initial;
+  box-sizing: border-box;
 }
 .mad-select > ul:first-of-type{
    /* max-width:120px; */ /* COMMENT FOR AUTO WIDTH */
 }
 .mad-select > ul:first-of-type li.selected{
   display: inline-block;
-  height: 24px;
+  height: 40px;
   max-width: calc(100% - 24px);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2912,7 +2913,7 @@ body {
 	color: #eeeeee;
 }
 .cnt-btns-action-op{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	right: 0;
 	width: 100%;
@@ -3098,6 +3099,7 @@ body {
 }
 .main-rep .mad-select ul{
 	margin-top: 5px;
+	width: 100%;
 }
 .main-rep .mad-select ul.mad-select-drop{
 	width: 100%;
@@ -3126,8 +3128,9 @@ body {
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
     border-radius: 50%;
-    background-color: #00766c;
+	background: #02ab9b !important;
     color: white;
+	border-color: #009688 !important;
 }
 
 .ui-state-default:hover {
@@ -3347,6 +3350,7 @@ body {
 }
 .panel-operations .mad-select ul{
 	margin-top: 5px;
+	width: 100%;
 }
 .panel-operations .mad-select i.material-icons{
 	bottom: 7px;
@@ -3482,4 +3486,9 @@ Mask
 	.cd-btn {
 		padding: 0.5em 1.5em;
 	}
+}
+
+/* SELECT JQUERY UI */
+.ui-menu .ui-menu-item-wrapper{
+	border-radius: 0;
 }
