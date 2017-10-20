@@ -91,31 +91,37 @@ class SiteController extends Controller
         $totalarr = $spreportesmain[$tamano-1];
         //elimino los totales de la consulta general
         unset($spreportesmain[$tamano-1]);
-
-        return $this->render('index',["spreportesmain"=>$spreportesmain, "total"=>$total, "totalarr"=>$totalarr]);      
-    // return $this->redirect(['site/presupuesto']);
+		
+		//genero la sesion
+		$clave = round($spreportesmain[0]['ENCRIP']); 
+		
+		if($clave==1){
+			
+			Yii::$app->session['sesion'] = Yii::$app->request->get('cx');     
+		
+		}
+		
+		if(isset(Yii::$app->session['sesion'])){
+			
+			 return $this->render('index',["spreportesmain"=>$spreportesmain, "total"=>$total, "totalarr"=>$totalarr]); 
+		
+		}else{
+		
+		return $this->redirect(['site/salida']);
+		
+		}
     }
 
-    public function actionLogin()
+    public function actionSalida()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+		
+		Yii::$app->session['sesion'];
+			
+		Yii::$app->session->destroy();
+		
+		 $this->layout=false;
+        
+		 return $this->render('logout');
     }
 
     public function actionContact()
@@ -158,7 +164,19 @@ class SiteController extends Controller
 			foreach($spfuerza as $spfuerzaarr):
 			endforeach;		
 
+			if(isset(Yii::$app->session['sesion'])){
+			
         return $this->render('adiciones',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
+		
+			}else{
+						
+			Yii::$app->session['sesion'];
+			
+			Yii::$app->session->destroy();
+		
+		return $this->redirect(['site/salida']);
+		
+		}
     }
 
 	public function actionReducciones()
@@ -181,7 +199,19 @@ class SiteController extends Controller
 			foreach($spfuerza as $spfuerzaarr):
 			endforeach;		
 
+			if(isset(Yii::$app->session['sesion'])){
+			
         return $this->render('reducciones',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
+		
+		}else{
+						
+			Yii::$app->session['sesion'];
+			
+			Yii::$app->session->destroy();
+		
+		return $this->redirect(['site/salida']);
+		
+		}
     }
 
 	public function actionAutopago()
@@ -204,7 +234,19 @@ class SiteController extends Controller
 			foreach($spfuerza as $spfuerzaarr):
 			endforeach;		
 
+			if(isset(Yii::$app->session['sesion'])){
+			
         return $this->render('autopago',["MODALIDAD"=>$spmodalidadarr,"VIGENCIA"=>$spvigenciaarr,"FUERZA"=>$spfuerzaarr]);
+		
+		}else{
+						
+			Yii::$app->session['sesion'];
+			
+			Yii::$app->session->destroy();
+		
+		return $this->redirect(['site/salida']);
+		
+		}
     }
 
 	public function actionPresupuesto()
@@ -244,9 +286,21 @@ class SiteController extends Controller
         $vigencia = $model1->procedimiento3(3);
         //------------------opciones posibles del formulario -----------------------
 
+		if(isset(Yii::$app->session['sesion'])){
+		
         $this->layout='main_rep';        
         return $this->render('presupuesto',["nombre"=>$nombre, "nit"=>$nit, "fuerza"=>$fuerza, "modalidad"=>$modalidad, "vigencia"=>$vigencia,
                                             "mensaje"=>$mensaje]);
+											
+		}else{
+						
+			Yii::$app->session['sesion'];
+			
+			Yii::$app->session->destroy();
+		
+		return $this->redirect(['site/salida']);
+		
+		}
     }
 	public function actionExcel()
     {
