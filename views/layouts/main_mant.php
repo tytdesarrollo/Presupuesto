@@ -30,7 +30,7 @@ AppAsset::register($this);
 	<header id="header" class="clearfix">
 		<nav class="navbar nav-pre">
 			<div class="container-fluid">
-				<div class="pull-right">
+				<div class="pull-left">
 					<div class="content__icon-menu__aux">
 						<?= Html::a('<i class="material-icons icon__24">&#xE88A;</i>', ['site/index'], ['class' => 'menu-trigger']) ?>
 					</div>
@@ -38,87 +38,48 @@ AppAsset::register($this);
 						<a href="#" class="menu-modal-trigger menu-trigger">
 							<i class="material-icons icon__24">&#xE5C3;</i>
 						</a>
-						<div class="content-menu-ppto">
-							<nav>
-								<ul class="menu-ppto">
-									<h2 data-content="¿Qué operación desea realizar?"><span>¿Qué operación desea realizar?</span></h2>
-									<li>
-										<a href="<?php echo Url::toRoute(['site/adiciones']); ?>">
-											Adición
-										</a>
-									</li>
-									<li>
-										<a href="<?php echo Url::toRoute(['site/reducciones']); ?>">
-											Reducción
-										</a>
-									</li>
-									<li>
-										<a href="<?php echo Url::toRoute(['site/autopago']); ?>">
-											Autorización de pago
-										</a>
-									</li>
-									<li>
-										<a href="<?php echo Url::toRoute(['site/presupuesto']); ?>">
-											Ejecuciones
-										</a>
-									</li>
-								</ul>
-							</nav>
-							<a href="#" class="close-menu-ppto">
-								<i class="material-icons">&#xE14C;</i>
-							</a>
-						</div>
-					</div>
-					<div class="content__icon-menu__aux">
-						<div class="content-avatar__nav">
-							<?= Html::img('@web/img/avatar.png', ['alt' => 'avatar', 'class' => 'img-avatar img-circle']) ?>
-						</div>
 					</div>
 				</div>
 			</div>
 		</nav>
 	</header>
-    <div class="fluid-container main-content main-operations">
+	<div class="content-menu-ppto">
+		<nav>
+			<ul class="menu-ppto">
+				<h2 class="txt__light-100"><span>¿Qué operación desea realizar?</span></h2>
+				<li>
+					<a href="<?php echo Url::toRoute(['site/adiciones']); ?>">
+						Adición
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo Url::toRoute(['site/reducciones']); ?>">
+						Reducción
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo Url::toRoute(['site/autopago']); ?>">
+						Autorización de pago
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo Url::toRoute(['site/presupuesto']); ?>">
+						Ejecuciones
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<a href="#" class="close-menu-ppto">
+			<i class="material-icons">&#xE14C;</i>
+		</a>
+	</div>
+    <div id="mainOptn" class="fluid-container main-content main-operations">
 		<div class="mod-docs">
 			<div class="mod-docs-header bg-teal-std"></div>
 			<div class="mod-docs-body container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="panel panel-default panel-operations">
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 pull-right">
-										<div class="content__f-input pull-right">
-											<div class="form-group">
-												<input class="form-control" id="finput" name="finput" type="text" data-type="date" required="true" value="<?= date("d/m/y")?>">
-											</div>
-										</div>
-									</div>
-								</div>
-								<p>Seleccione un ESM para continuar con la operación.
-									<div class="row">
-										<div class="col-xs-3 col-sm-3">
-											<div class="form-group label-floating"><label for="codESM" class="control-label">ESM</label><input type="text" class="form-control" id="codESM"></div>
-										</div>
-										<div class="col-xs-9 col sm-9">
-											<div class="form-group label-floating"><label for="dscESM" class="control-label">Descripción</label><input type="text" class="form-control" id="dscESM"></div>
-										</div>
-									</div>
-									<hr>
-									<div class="content-operations">
-										<?= $content ?>
-									</div>
-								</p>
-							</div>
-							<div class="panel-footer clearfix">
-								<div class="form-group pull-left">
-									<?= Html::a('Cancelar', ['site/index'], ['class'=>'btn btn-danger btn-raised']) ?>
-								</div>
-								<div class="form-group pull-right">
-									<?= Html::a('Guardar', ['site/index'], ['class'=>'btn btn-primary btn-raised']) ?>
-								</div>
-							</div>
-						</div>
+					<div id="contform" class="content-form-operations col-md-8">
+						<?= $content ?>
 					</div>
 				</div>
 			</div>
@@ -129,9 +90,16 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script>
 	$(function () {
 		$.material.init();
+	});
+</script>
+<script>
+	$("#btnAddOptn").click(function(){
+		$(".content-form-operations").addClass("list-operations-visible");
+		$(".content-list-operations").addClass("list-operations-visible");
 	});
 </script>
 <script>

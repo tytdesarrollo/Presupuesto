@@ -31,7 +31,7 @@ AppAsset::register($this);
 	<header id="header" class="clearfix">
 		<nav class="navbar nav-pre">
 			<div class="container-fluid">
-				<div class="pull-right">
+				<div class="pull-left">
 					<div class="content__icon-menu__aux">
 						<?= Html::a('<i class="material-icons icon__24">&#xE88A;</i>', ['site/index'], ['class' => 'menu-trigger']) ?>
 					</div>
@@ -70,11 +70,6 @@ AppAsset::register($this);
 							</a>
 						</div>
 					</div>
-					<div class="content__icon-menu__aux">
-						<div class="content-avatar__nav">
-							<?= Html::img('@web/img/avatar.png', ['alt' => 'avatar', 'class' => 'img-avatar img-circle']) ?>
-						</div>
-					</div>
 				</div>
 			</div>
 		</nav>
@@ -95,7 +90,7 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script>
 	$(function () {
 		$.material.init();
@@ -138,15 +133,16 @@ $( function() {
     }
  });
 </script>
+<!--
 <script>
-	Highcharts.chart('chart', {
+  Highcharts.chart('chart', {
     chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
     },
-	colors: ['#00b7a6', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
+  colors: ['#00b7a6', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
    '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
     title: {
         text: ''
@@ -154,14 +150,14 @@ $( function() {
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-	plotOptions: {
+  plotOptions: {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
                 enabled: false
                 },
-				showInLegend: true
+        showInLegend: true
         }
     },
     series: [{
@@ -178,4 +174,4 @@ $( function() {
         }]
     }]
 });
-</script>
+</script>-->

@@ -30,7 +30,7 @@ AppAsset::register($this);
 	<header id="header" class="clearfix">
 		<nav class="navbar nav-pre">
 			<div class="container-fluid">
-				<div class="pull-right">
+				<div class="pull-left">
 					<div class="content__icon-menu__aux">
 						<?= Html::a('<i class="material-icons icon__24">&#xE88A;</i>', ['site/index'], ['class' => 'menu-trigger']) ?>
 					</div>
@@ -69,16 +69,11 @@ AppAsset::register($this);
 							</a>
 						</div>
 					</div>
-					<div class="content__icon-menu__aux">
-						<div class="content-avatar__nav">
-							<?= Html::img('@web/img/avatar.png', ['alt' => 'avatar', 'class' => 'img-avatar img-circle']) ?>
-						</div>
-					</div>
 				</div>
 			</div>
 		</nav>
 	</header>
-    <div class="fluid-container main-content">
+    <div class="fluid-container main-content main-rep">
         <?= $content ?>
     </div>
 <?php $this->endBody() ?>
@@ -86,6 +81,7 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script>
 	$(function () {
 		$.material.init();
