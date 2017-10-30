@@ -10,9 +10,8 @@ use yii\helpers\Url;
 
 $this->title = 'Adiciones';
 					
-					?>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+?>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <script>
 
@@ -404,7 +403,7 @@ $this->title = 'Adiciones';
 					'</dl>'+
 					'<div class="cnt-v-op">'+
 						'<dl class="info-op">'+
-							'<dt>Valor de reducción</dt>'+
+							'<dt>Valor de adición</dt>'+
 							'<dd>$'+arrayAutPagar[i]+'</dd>'+
 						'</dl>'+
 					'</div>'+

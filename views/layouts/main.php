@@ -90,7 +90,7 @@ AppAsset::register($this);
 </html>
 <?php $this->endPage() ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.10/sweetalert2.min.js"></script>
-<!--<script src="https://code.highcharts.com/highcharts.src.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <script>
 	$(function () {
 		$.material.init();
