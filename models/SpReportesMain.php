@@ -10,9 +10,17 @@ use yii\base\Model;
 class SpReportesMain extends Model{	
 
 	
-    public function procedimiento(){              
+    public function procedimiento(){        
+		
 
-		$rows = Yii::$app->telmovil->createCommand("EXEC SP_REPORTES_MAIN");
+			
+		$CLAVE= Yii::$app->request->get('cx');
+			
+		
+			
+		$rows = Yii::$app->telmovil->createCommand("EXEC SP_REPORTES_MAIN @IN_TX_ENCRIP_CONEX=:CLAVE");
+		
+		$rows->bindParam(":CLAVE", $CLAVE, PDO::PARAM_STR);
     
         $result = $rows->queryAll();
 
