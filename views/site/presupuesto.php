@@ -331,8 +331,18 @@ $this->title = 'Ejecución Presupuestal';
 
 
 		$(function(){			
+			//-------------------
+			var hoy = new Date();	
+
+			var dd = hoy.getDate();
+			var mm = hoy.getMonth()+1;
+			var yyyy = hoy.getFullYear();			
+			//-------------------
+			//
+			
 		    var datemin = vigencia+'/01/01';
-		    var datemax = vigencia+'/12/31';	  
+		    var datemax = (yyyy+"/"+mm+"/"+dd);	  
+		    //var datemax = vigencia+'/12/31';	  
 
 		    $("#from").datepicker({
 		    	minDate: new Date(datemin),
