@@ -46,7 +46,7 @@ $posicionamiento = 6;
 				<th class="text-center">FECHA</th>
 				<th class="text-center">PERIODO DE INICIO DEL REPORTE</th>
 				<th class="text-center">PERIODO DE FIN DEL REPORTE</th>
-				<th class="text-center">FUERZA</th>
+				<th class="text-center"><?=utf8_decode($key['TITULO'])?></th>
 				<th class="text-center">MODALIDAD</th>
 			</tr>			
 		</thead>
@@ -71,7 +71,7 @@ $posicionamiento = 6;
 	<thead>		
 		<tr style="background:#8BC34A; color:#000; font-weight:bold">
 			<?php for ($i = 0; $i < $cantidad; $i++){ ?>				
-				<?php if (($i > 5 and $i < ($cantidad-2))): ?>
+				<?php if (($i > 5 and $i < ($cantidad-3))): ?>
 					<?php if (($i == $posicionamiento)): ?>
 						<th class="text-center" colspan="3"><?=utf8_decode($NombreColExc2[$i])?></th>
 						<?php $posicionamiento = $posicionamiento+3; ?>
@@ -91,7 +91,11 @@ $posicionamiento = 6;
 		<?php foreach ($spPreosuFil as $key): ?>
 			<tr class="divider">
 				<?php for ($i = 0; $i < $cantidad; $i++){ ?>
-					<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php if (is_numeric($key[$columnas[$i]])): ?>
+						<td><?=utf8_decode(str_replace (".",",",$key[$columnas[$i]]))?></td>
+					<?php else: ?>
+						<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php endif ?>							
 				<?php } ?>
 			</tr>
 		<?php endforeach ?>		

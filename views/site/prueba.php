@@ -1,23 +1,15 @@
-<?PHP //VAR_DUMP($DATO[0]) ?>
-
 <?php
-								
-									foreach($DATO as $row):
-									
-									endforeach;
+	use app\models\SpReportesFiltroMes;
 
-									$codigos = "";
-									$desc = "";
-									for($i=0;$i<count($row);$i++) {
+	$prueba = new SpReportesFiltroMes();
+	$exec = $prueba->procedimiento('01/01/2016','09/08/2018','2017','50000','SUMI');
 
-										$codigos = $codigos.$row[$i]['CODI_ESM'].'_*';
-										$desc = $desc.$row[$i]['NOM_ESM'].'_*';									
-										
 
-									}
-									
-									$items = array($codigos,$desc);
-									
-									VAR_DUMP($items);
-								 ?>
-								
+	
+
+
+	echo count($exec);
+
+
+
+	

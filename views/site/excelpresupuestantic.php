@@ -81,7 +81,15 @@ $table = "<table cellpadding='0' cellspacing='0' id='sheet0' border='0'>
 		<?php foreach ($spReporAnt as $key): ?>
 			<tr class="divider">
 				<?php for ($i = 0; $i < $cantidad; $i++){ ?>
-					<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php if (is_numeric($key[$columnas[$i]])): ?>
+						<?php if ($columnas[$i] === 'CODI_ESM'): ?>
+							<td><?=utf8_decode($key[$columnas[$i]])?></td>
+						<?php else: ?>
+							<td><?=utf8_decode(str_replace (".",",",$key[$columnas[$i]]))?></td>
+						<?php endif ?>
+					<?php else: ?>
+						<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php endif ?>					
 				<?php } ?>
 			</tr>
 		<?php endforeach ?>		
