@@ -36,7 +36,7 @@ header("Expires: 0");
 				<th class="text-center">FECHA</th>
 				<th class="text-center">PERIODO DE INICIO DEL REPORTE</th>
 				<th class="text-center">PERIODO DE FIN DEL REPORTE</th>
-				<th class="text-center">FUERZA</th>
+				<th class="text-center"><?=utf8_decode($key['TITULO'])?></th>
 				<th class="text-center">MODALIDAD</th>
 			</tr>			
 		</thead>
@@ -69,7 +69,11 @@ header("Expires: 0");
 		<?php foreach ($spreportesconvig as $key): ?>
 			<tr class="divider">
 				<?php for ($i = 0; $i < $cantidad; $i++){ ?>
-					<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php if (is_numeric($key[$columnas[$i]])): ?>
+						<td><?=utf8_decode(str_replace (".",",",$key[$columnas[$i]]))?></td>
+					<?php else: ?>
+						<td><?=utf8_decode($key[$columnas[$i]])?></td>
+					<?php endif ?>					
 				<?php } ?>
 			</tr>
 		<?php endforeach ?>		

@@ -29,6 +29,13 @@ class SpReportesConsolidadoVigencia extends Model{
 
         $result = $rows->queryAll();
 
+        if(count($result) === 1) {
+            $mensaje = $result[0]['Mensaje'];     
+            if(strcmp($mensaje, 'NO_DATA') === 0){
+                $result = array();
+            }
+        }
+
         return $result;
 
 	 }	

@@ -63,12 +63,13 @@ $this->title = 'Ejecución Presupuestal';
 						<hr>
 						<div class="row">
 							<div class="col-xs-9 col-sm-10">
-								<div class="form-group label-floating"><label for="dscFrz" class="control-label">Escriba el nombre de la Fuerza</label><input type="text" class="form-control" id="dscFrz" value=""></div>
+								<div class="form-group label-floating"><label for="dscFrz" class="control-label">Escriba el nombre de la Fuerza o del ESM</label><input type="text" class="form-control" id="dscFrz" value=""></div>
 							</div>
 							<div class="col-xs-3 col-sm-2">
 								<div class="form-group label-floating"><label for="codFrz" class="control-label"></label><input type="text" class="form-control" id="codFrz" name="codFrz" required="true" value=""></div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col-xs-12 col-sm-6">
 								<div class="form-group select-m">
@@ -392,10 +393,3 @@ $this->title = 'Ejecución Presupuestal';
 		
 	});
 </script>
-
-
-
-
-
-  
-  

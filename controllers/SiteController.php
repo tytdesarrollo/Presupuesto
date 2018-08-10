@@ -30,11 +30,9 @@ class SiteController extends Controller
 	public function actionPrueba()
     {
 
-		$model = new SpFuerza;
+		$this->layout=false;
 
-		$spfuerza = $model->procedimiento();	
-
-	return $this->render('prueba',["DATO"=>$spfuerza]);
+	   return $this->render('prueba');
     }
 
     public function behaviors()
@@ -453,6 +451,7 @@ class SiteController extends Controller
             $nombreColExc[3] = 'ADICIONES';
             $nombreColExc[4] = 'REDUCCIONES';
             $nombreColExc[5] = 'PRESUPUESTO DEFINITIVO';
+            $nombreColExc[$cantidad-3] = 'TOTAL AUTORIZADO';
             $nombreColExc[$cantidad-2] = 'SALDO POR EJECUTAR';
             $nombreColExc[$cantidad-1] = 'PROYECCIÓN';
             //---------------------------------------CUERPO REPORTE----------------------------------------
@@ -496,7 +495,8 @@ class SiteController extends Controller
             //cantidad de columnas por leer
             $cantidad = count($columnas);
             //se reemplazan los nombres por los que van siempre fijos en excel
-            $nombreColExc = array('NUMERO AUTORIZACIÓN','ESM', 'AMORTIZACIÓN','FECHA','SALDO POR AMORTIZAR','MES FACTURADO');
+            //$nombreColExc = array('NUMERO AUTORIZACIÓN','ESM', 'AMORTIZACIÓN','FECHA','SALDO POR AMORTIZAR','MES FACTURADO');
+            $nombreColExc = array('NUMERO AUTORIZACIÓN','ESM', 'AMORTIZACIÓN','FECHA','MES FACTURADO');
             //---------------------------------------CUERPO REPORTE----------------------------------------
 
             $this->layout=false;
@@ -545,8 +545,9 @@ class SiteController extends Controller
             $nombreColExc[3] = 'ADICIONES';
             $nombreColExc[4] = 'REDUCCIONES';
             $nombreColExc[5] = 'PRESUPUESTO DEFINITIVO';
-            $nombreColExc[$cantidad-1] = 'SALDO POR EJECUTAR';
-            $nombreColExc[$cantidad-2] = 'PROYECCIÓN';
+            $nombreColExc[$cantidad-3] = 'TOTAL AUTORIZADO';
+            $nombreColExc[$cantidad-2] = 'SALDO POR EJECUTAR';
+            $nombreColExc[$cantidad-1] = 'PROYECCIÓN';
 
             $nombres = $model->nombreFiltroMes($nombreColExc);
             $nombreColExc = $nombres[0];
